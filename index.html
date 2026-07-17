@@ -2,17 +2,40 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>CV Của Tôi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV của Tôi</title>
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; background-color: #f4f4f9; }
-        h1 { color: #333; }
-        .container { background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #f0f2f5; }
+        .container { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; }
+        .section { margin-top: 30px; }
+        h2 { border-bottom: 2px solid #3498db; padding-bottom: 10px; color: #3498db; }
+        ul { list-style: none; padding: 0; }
+        li { padding: 10px 0; border-bottom: 1px solid #eee; }
+        .contact { text-align: center; margin-bottom: 20px; }
+        a { color: #3498db; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Chào mừng bạn đến với CV của tôi</h1>
-        <p>Tôi đang xây dựng trang CV tương tác tại đây.</p>
+        <h1>Nguyễn Văn A</h1>
+        <div class="contact">
+            <p>Email: <a href="mailto:email@example.com">email@example.com</a> | Điện thoại: 0123456789</p>
+        </div>
+        
+        <div class="section">
+            <h2>Giới thiệu</h2>
+            <p>Sinh viên CNTT đam mê lập trình Backend, luôn học hỏi công nghệ mới.</p>
+        </div>
+
+        <div class="section">
+            <h2>Kỹ năng</h2>
+            <ul>
+                <li>Java / OOP (90%)</li>
+                <li>SQL Server (85%)</li>
+                <li>HTML/CSS (80%)</li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
