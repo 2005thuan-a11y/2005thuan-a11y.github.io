@@ -7,30 +7,32 @@
     <style>
         :root {
             --bg-color: #ffffff;
-            --text-color: #222222;
-            --sidebar-bg: #f9f9f9;
+            --text-color: #1a1a1a;
+            --sidebar-bg: #f8f9fa;
             --accent-color: #000000;
-            --sub-text: #666666;
-            --border-color: #e0e0e0;
+            --sub-text: #6c757d;
+            --border-color: #e9ecef;
+            --hover-bg: #f1f3f5;
         }
 
         body {
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.7;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
+            -webkit-font-smoothing: antialiased;
         }
 
         .cv-container {
-            max-width: 950px;
+            max-width: 1000px;
             width: 100%;
             display: flex;
             min-height: 100vh;
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            background-color: var(--bg-color);
         }
 
         /* SIDEBAR (LEFT COLUMN) */
@@ -38,44 +40,46 @@
             width: 32%;
             background-color: var(--sidebar-bg);
             border-right: 1px solid var(--border-color);
-            padding: 40px 30px;
+            padding: 50px 35px;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
         }
 
         .profile-section {
-            text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
         }
 
         .profile-name {
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 2rem;
+            font-weight: 800;
             color: var(--accent-color);
-            margin: 0 0 10px 0;
+            margin: 0 0 12px 0;
             letter-spacing: -0.5px;
-            line-height: 1.2;
+            line-height: 1.15;
         }
 
         .profile-title {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             color: var(--sub-text);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
+            letter-spacing: 1.5px;
+            font-weight: 700;
         }
 
         .sidebar-section {
-            margin-bottom: 35px;
+            margin-bottom: 40px;
         }
 
         .sidebar-title {
-            font-size: 1rem;
+            font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            color: var(--accent-color);
             border-bottom: 1px solid var(--accent-color);
-            padding-bottom: 5px;
-            margin-bottom: 15px;
+            padding-bottom: 6px;
+            margin-bottom: 20px;
         }
 
         .contact-list {
@@ -86,35 +90,42 @@
         }
 
         .contact-list li {
-            margin-bottom: 12px;
-            word-break: break-all;
+            margin-bottom: 16px;
         }
 
         .contact-list strong {
             display: block;
-            color: var(--accent-color);
-            font-size: 0.8rem;
+            color: var(--sub-text);
+            font-size: 0.75rem;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .contact-list span, .contact-list a {
+            color: var(--text-color);
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
         }
 
         .contact-list a {
-            color: var(--text-color);
-            text-decoration: none;
-            border-bottom: 1px dashed var(--sub-text);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .contact-list a:hover {
-            border-bottom-style: solid;
+            color: var(--sub-text);
+            border-bottom-color: var(--sub-text);
         }
 
         .skill-group {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .skill-group-title {
             font-size: 0.9rem;
             font-weight: 700;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
             color: var(--accent-color);
         }
 
@@ -127,53 +138,78 @@
         /* MAIN CONTENT (RIGHT COLUMN) */
         .main-content {
             width: 68%;
-            padding: 40px 40px;
+            padding: 50px 50px;
             box-sizing: border-box;
-            background-color: var(--bg-color);
         }
 
         .main-section {
-            margin-bottom: 40px;
+            margin-bottom: 45px;
         }
 
         .main-section-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 5px;
-            margin-bottom: 20px;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 25px;
+            color: var(--accent-color);
         }
 
         .about-text {
             font-size: 0.95rem;
             text-align: justify;
             margin: 0;
+            color: #333333;
         }
 
         /* ACCORDION STYLES */
         .info-item {
-            margin-bottom: 25px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 15px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: var(--bg-color);
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
-        .info-item:last-child {
-            border-bottom: none;
+        .info-item:hover {
+            border-color: #ced4da;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
         }
 
         .info-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
+            padding: 18px 20px;
             cursor: pointer;
             user-select: none;
+            transition: background-color 0.2s;
+        }
+
+        .info-header:hover {
+            background-color: var(--sidebar-bg);
         }
 
         .info-header-left {
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 700;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-header-left::before {
+            content: '→';
+            font-weight: 400;
+            color: var(--sub-text);
+            transition: transform 0.3s ease;
+        }
+
+        .info-item.active .info-header-left::before {
+            transform: rotate(90deg);
             color: var(--accent-color);
         }
 
@@ -182,35 +218,24 @@
             color: var(--sub-text);
             font-weight: 600;
             white-space: nowrap;
-            margin-left: 15px;
-            margin-top: 3px;
-        }
-
-        .info-header-left::before {
-            content: '＋ ';
-            font-weight: normal;
-            color: var(--sub-text);
-        }
-
-        .info-item.active .info-header-left::before {
-            content: '－ ';
         }
 
         .info-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease-in-out;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .info-content-inner {
-            padding-top: 15px;
+            padding: 5px 20px 20px 40px;
+            border-top: 1px solid var(--border-color);
         }
 
         .info-sub {
             font-size: 0.9rem;
             font-style: italic;
             color: var(--sub-text);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-weight: 500;
         }
 
@@ -219,16 +244,23 @@
             margin: 0;
             padding-left: 18px;
             text-align: justify;
+            color: #333333;
         }
 
         .info-detail li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+        }
+
+        .info-detail li:last-child {
+            margin-bottom: 0;
         }
 
         .tech-stack {
-            margin-top: 12px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px dashed var(--border-color);
+            font-size: 0.8rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: var(--accent-color);
@@ -243,11 +275,19 @@
                 width: 100%;
                 border-right: none;
                 border-bottom: 1px solid var(--border-color);
-                padding: 30px 20px;
+                padding: 40px 25px;
             }
             .main-content {
                 width: 100%;
-                padding: 30px 20px;
+                padding: 40px 25px;
+            }
+            .info-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            .info-header-right {
+                margin-left: 24px;
             }
         }
 
@@ -262,12 +302,19 @@
                 max-width: 100%;
                 width: 100%;
             }
+            .info-item:hover {
+                box-shadow: none !important;
+                border-color: var(--border-color) !important;
+            }
             .info-content {
                 max-height: none !important;
                 display: block !important;
             }
             .info-header-left::before {
                 display: none !important;
+            }
+            .info-content-inner {
+                padding-left: 20px !important;
             }
             .info-item {
                 page-break-inside: avoid;
@@ -295,7 +342,7 @@
                     </li>
                     <li>
                         <strong>Điện thoại</strong>
-                        0357291038
+                        <span>0357291038</span>
                     </li>
                     <li>
                         <strong>GitHub</strong>
