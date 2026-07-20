@@ -8,11 +8,11 @@
         :root {
             --bg-color: #ffffff;
             --text-color: #1a1a1a;
-            --sidebar-bg: #f8f9fa;
-            --accent-color: #000000;
-            --sub-text: #6c757d;
-            --border-color: #e9ecef;
-            --hover-bg: #f1f3f5;
+            --sidebar-bg: #fdf6f0; /* Đổi sang tone màu kem ấm áp để hợp với đỏ cam */
+            --accent-color: #cc4e2e; /* Màu đỏ cam đất sang trọng, không bị chói */
+            --sub-text: #7d6b65;
+            --border-color: #f3e6dc;
+            --hover-bg: #fbeee4;
         }
 
         body {
@@ -66,7 +66,7 @@
 
         .profile-avatar:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 20px rgba(204,78,46,0.15);
         }
 
         .profile-name {
@@ -134,8 +134,8 @@
         }
 
         .contact-list a:hover {
-            color: var(--sub-text);
-            border-bottom-color: var(--sub-text);
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
         }
 
         .skill-group {
@@ -212,8 +212,8 @@
         }
 
         .info-item:hover {
-            border-color: #ced4da;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border-color: #dcbfa8;
+            box-shadow: 0 4px 12px rgba(204,78,46,0.03);
         }
 
         .info-header {
@@ -372,7 +372,6 @@
         <!-- SIDEBAR (LEFT COLUMN) -->
         <div class="sidebar">
             <div class="profile-section">
-                <!-- Đường dẫn ảnh đã đồng bộ chuẩn xác với repo GitHub của bạn -->
                 <img src="avatar.png" alt="Thái Thái Thuận" class="profile-avatar">
                 <h1 class="profile-name">Thái Thái Thuận</h1>
                 <div class="profile-title">Java Backend Developer<br>& AI Engineer</div>
