@@ -6,187 +6,219 @@
     <title>CV Thái Thái Thuận - Java Backend & AI Developer</title>
     <style>
         :root {
-            --bg-color: #0d1117;
-            --card-color: #161b22;
-            --text-color: #c9d1d9;
-            --accent-color: #58a6ff;
-            --sub-text: #8b949e;
-            --border-color: #30363d;
+            --bg-color: #ffffff;
+            --text-color: #222222;
+            --sidebar-bg: #f9f9f9;
+            --accent-color: #000000;
+            --sub-text: #666666;
+            --border-color: #e0e0e0;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
             margin: 0;
-            padding: 40px 20px;
+            padding: 0;
             display: flex;
             justify-content: center;
         }
 
         .cv-container {
-            max-width: 850px;
+            max-width: 950px;
             width: 100%;
-            background-color: var(--card-color);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: flex;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
         }
 
-        /* Header section */
-        .header {
+        /* SIDEBAR (LEFT COLUMN) */
+        .sidebar {
+            width: 32%;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            padding: 40px 30px;
+            box-sizing: border-box;
+        }
+
+        .profile-section {
             text-align: center;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 25px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
-        .header h1 {
+        .profile-name {
+            font-size: 1.8rem;
+            font-weight: 700;
             color: var(--accent-color);
             margin: 0 0 10px 0;
-            font-size: 2.4rem;
-            letter-spacing: 0.5px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
         }
 
-        .header .title {
-            font-size: 1.3rem;
-            color: var(--text-color);
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-
-        .contact-info {
+        .profile-title {
             font-size: 0.95rem;
             color: var(--sub-text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
 
-        .contact-info a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        /* Section layout */
-        .section {
+        .sidebar-section {
             margin-bottom: 35px;
         }
 
-        .section-title {
-            color: var(--accent-color);
-            font-size: 1.3rem;
-            border-bottom: 1px solid var(--border-color);
+        .sidebar-title {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--accent-color);
             padding-bottom: 5px;
             margin-bottom: 15px;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .contact-list li {
+            margin-bottom: 12px;
+            word-break: break-all;
+        }
+
+        .contact-list strong {
+            display: block;
+            color: var(--accent-color);
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        /* Grid & Badges for Skills */
-        .skills-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .skill-item {
-            background-color: #1f242c;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 15px 18px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        @media(min-width: 600px) {
-            .skill-item {
-                flex-direction: row;
-                align-items: center;
-                gap: 15px;
-            }
-        }
-
-        .badge {
-            background-color: #1f6feb;
-            color: #ffffff;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            min-width: 160px;
-            text-align: center;
-        }
-
-        .skill-desc {
-            font-size: 0.95rem;
+        .contact-list a {
             color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--sub-text);
         }
 
-        /* Accordion */
+        .contact-list a:hover {
+            border-bottom-style: solid;
+        }
+
+        .skill-group {
+            margin-bottom: 20px;
+        }
+
+        .skill-group-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--accent-color);
+        }
+
+        .skill-group-desc {
+            font-size: 0.85rem;
+            color: var(--sub-text);
+            text-align: justify;
+        }
+
+        /* MAIN CONTENT (RIGHT COLUMN) */
+        .main-content {
+            width: 68%;
+            padding: 40px 40px;
+            box-sizing: border-box;
+            background-color: var(--bg-color);
+        }
+
+        .main-section {
+            margin-bottom: 40px;
+        }
+
+        .main-section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        .about-text {
+            font-size: 0.95rem;
+            text-align: justify;
+            margin: 0;
+        }
+
+        /* ACCORDION STYLES */
         .info-item {
-            margin-bottom: 15px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: #161b22;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
         }
 
         .info-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: #f0f6fc;
-            padding: 15px 20px;
-            background-color: #1f242c;
+            align-items: flex-start;
             cursor: pointer;
             user-select: none;
-            transition: background-color 0.2s;
         }
 
-        .info-header:hover {
-            background-color: #262c36;
+        .info-header-left {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--accent-color);
         }
 
-        .info-header::after {
-            content: '▼';
-            font-size: 0.8rem;
+        .info-header-right {
+            font-size: 0.85rem;
             color: var(--sub-text);
-            transition: transform 0.3s;
+            font-weight: 600;
+            white-space: nowrap;
+            margin-left: 15px;
+            margin-top: 3px;
         }
 
-        .info-item.active .info-header::after {
-            transform: rotate(180deg);
+        .info-header-left::before {
+            content: '＋ ';
+            font-weight: normal;
+            color: var(--sub-text);
+        }
+
+        .info-item.active .info-header-left::before {
+            content: '－ ';
         }
 
         .info-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            padding: 0 20px;
+            transition: max-height 0.4s ease-in-out;
         }
 
-        .info-item.active .info-content {
-            border-top: 1px solid var(--border-color);
+        .info-content-inner {
+            padding-top: 15px;
         }
 
         .info-sub {
+            font-size: 0.9rem;
+            font-style: italic;
             color: var(--sub-text);
-            font-size: 0.95rem;
-            margin-bottom: 12px;
-            font-weight: bold;
+            margin-bottom: 10px;
+            font-weight: 500;
         }
 
         .info-detail {
-            font-size: 0.95rem;
-            margin: 5px 0 5px 0;
-            padding-left: 20px;
+            font-size: 0.9rem;
+            margin: 0;
+            padding-left: 18px;
+            text-align: justify;
         }
 
         .info-detail li {
@@ -194,9 +226,29 @@
         }
 
         .tech-stack {
-            margin-top: 10px;
-            font-size: 0.9rem;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             color: var(--accent-color);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .cv-container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding: 30px 20px;
+            }
+            .main-content {
+                width: 100%;
+                padding: 30px 20px;
+            }
         }
 
         /* PRINT MEDIA QUERY OPTIMIZATION */
@@ -204,48 +256,21 @@
             body {
                 background-color: #ffffff !important;
                 color: #000000 !important;
-                padding: 0;
-            }
-            :root {
-                --accent-color: #0969da;
-                --text-color: #000000;
-                --sub-text: #57606a;
-                --border-color: #d0d7de;
-                --card-color: #ffffff;
             }
             .cv-container {
-                background-color: #ffffff !important;
-                border: none !important;
                 box-shadow: none !important;
-                padding: 0;
                 max-width: 100%;
-            }
-            .info-item {
-                border: 1px solid #d0d7de !important;
-                margin-bottom: 20px;
-                page-break-inside: avoid;
-            }
-            .info-header {
-                background-color: #f6f8fa !important;
-                color: #000000 !important;
-            }
-            .info-header::after {
-                display: none !important;
+                width: 100%;
             }
             .info-content {
                 max-height: none !important;
                 display: block !important;
-                padding: 20px !important;
-                border-top: 1px solid #d0d7de !important;
             }
-            .skill-item {
-                background-color: #f6f8fa !important;
-                border: 1px solid #d0d7de !important;
+            .info-header-left::before {
+                display: none !important;
+            }
+            .info-item {
                 page-break-inside: avoid;
-            }
-            .badge {
-                background-color: #0969da !important;
-                color: #ffffff !important;
             }
         }
     </style>
@@ -253,116 +278,141 @@
 <body>
 
     <div class="cv-container">
-        <!-- HEADER -->
-        <div class="header">
-            <h1>Thái Thái Thuận</h1>
-            <div class="title">Java Backend Developer & AI Engineer</div>
-            <div class="contact-info">
-                Email: <a href="mailto:2005thuan@gmail.com">2005thuan@gmail.com</a> | 
-                Điện thoại: 0357291038 | 
-                GitHub: <a href="https://github.com/2005thuan-a11y" target="_blank">2005thuan-a11y</a>
+        
+        <!-- SIDEBAR (LEFT COLUMN) -->
+        <div class="sidebar">
+            <div class="profile-section">
+                <h1 class="profile-name">Thái Thái Thuận</h1>
+                <div class="profile-title">Java Backend Developer<br>& AI Engineer</div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Liên hệ</div>
+                <ul class="contact-list">
+                    <li>
+                        <strong>Email</strong>
+                        <a href="mailto:2005thuan@gmail.com">2005thuan@gmail.com</a>
+                    </li>
+                    <li>
+                        <strong>Điện thoại</strong>
+                        0357291038
+                    </li>
+                    <li>
+                        <strong>GitHub</strong>
+                        <a href="https://github.com/2005thuan-a11y" target="_blank">2005thuan-a11y</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Kỹ năng cốt lõi</div>
+                
+                <div class="skill-group">
+                    <div class="skill-group-title">Ngôn ngữ lập trình</div>
+                    <div class="skill-group-desc">Java (Đa luồng, Collections, Stream API), Python, SQL Script vững vàng.</div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-title">Framework Backend</div>
+                    <div class="skill-group-desc">Spring Boot (MVC, Security, Data JPA), Hibernate ORM, RESTful API architecture.</div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-title">Cơ sở dữ liệu</div>
+                    <div class="skill-group-desc">SQL Server, MySQL (Tối ưu truy vấn, Execution Plan, Indexing, Store Procedures).</div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-title">AI & Machine Learning</div>
+                    <div class="skill-group-desc">Pandas, NumPy, Scikit-learn. Tiền xử lý dữ liệu, Hyperparameter Tuning.</div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-title">Công cụ & Quy trình</div>
+                    <div class="skill-group-desc">Git/GitHub (Git Flow), Postman, Agile/Scrum. Đọc hiểu tài liệu tiếng Anh tốt.</div>
+                </div>
             </div>
         </div>
 
-        <!-- GIỚI THIỆU -->
-        <div class="section">
-            <div class="section-title">Giới thiệu</div>
-            <p style="margin: 0; text-align: justify;">Sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT định hướng trở thành kỹ sư Backend chuyên sâu kết hợp năng lực ứng dụng Trí tuệ nhân tạo (AI). Đam mê nghiên cứu và thiết kế các kiến trúc hệ thống dịch vụ có độ chịu tải cao, tối ưu hóa toàn diện hiệu suất xử lý dữ liệu lớn (Big Data SQL), cấu trúc hạ tầng linh hoạt và tích hợp liền mạch các mô hình học máy (Machine Learning/Deep Learning) vào sản phẩm thương mại thực tế. Khả năng tự học cao, tư duy hệ thống mạch lạc và luôn hướng tới việc giải quyết các bài toán tự động hóa thông minh nhằm tối ưu chi phí vận hành doanh nghiệp.</p>
-        </div>
-
-        <!-- HỌC VẤN -->
-        <div class="section">
-            <div class="section-title">Học vấn (Bấm để xem chi tiết)</div>
+        <!-- MAIN CONTENT (RIGHT COLUMN) -->
+        <div class="main-content">
             
-            <div class="info-item">
-                <div class="info-header">
-                    <span>Đại học FPT - Chuyên ngành Kỹ thuật phần mềm</span>
-                    <span>2023 - Hiện tại</span>
-                </div>
-                <div class="info-content">
-                    <div style="padding: 20px 0;">
-                        <div class="info-sub">Lộ trình đào tạo chuẩn quốc tế và nghiên cứu chuyên sâu</div>
-                        <ul class="info-detail">
-                            <li><strong>Kiến thức cốt lõi:</strong> Hoàn thành xuất sắc các học phần nền tảng cốt lõi bao gồm Cấu trúc dữ liệu & Giải thuật (DSA), Hệ quản trị cơ sở dữ liệu quan hệ (RDBMS), Phân tích & Thiết kế hệ thống (SAD), Kiến trúc hướng dịch vụ (SOA) và Phát triển ứng dụng Web phân tầng.</li>
-                            <li><strong>Chuyên sâu Backend:</strong> Tự nghiên cứu và áp dụng mô hình thiết kế (Design Patterns: Singleton, Factory, Repository, Dependency Injection), vòng đời xử lý request của Spring Framework, cơ chế bất đồng bộ, quản lý ThreadPool và tối ưu hóa bộ nhớ đệm Cache.</li>
-                            <li><strong>Nghiên cứu Trí tuệ nhân tạo:</strong> Đào sâu các phương pháp Tiền xử lý dữ liệu (Data Preprocessing), Kỹ nghệ đặc trưng (Feature Engineering), Học máy có giám sát (Supervised Learning) và các giải pháp tích hợp Pipeline của mô hình AI vào kiến trúc Microservices thông qua cơ chế REST hoặc Message Queue.</li>
-                            <li><strong>Hoạt động học thuật:</strong> Tham gia tích cực các dự án thực hành giả lập doanh nghiệp tại trường với vai trò Trưởng nhóm kỹ thuật (Technical Lead), chịu trách nhiệm thiết kế lược đồ cơ sở dữ liệu (Database Schema), phân chia Module tính năng và tối ưu hóa Logic phía máy chủ.</li>
-                        </ul>
-                    </div>
-                </div>
+            <!-- GIỚI THIỆU -->
+            <div class="main-section">
+                <div class="main-section-title">Giới thiệu</div>
+                <p class="about-text">
+                    Sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT định hướng trở thành kỹ sư Backend chuyên sâu kết hợp năng lực ứng dụng Trí tuệ nhân tạo (AI). Đam mê nghiên cứu và thiết kế các kiến trúc hệ thống dịch vụ có độ chịu tải cao, tối ưu hóa toàn diện hiệu suất xử lý dữ liệu lớn (Big Data SQL), cấu trúc hạ tầng linh hoạt và tích hợp liền mạch các mô hình học máy (Machine Learning/Deep Learning) vào sản phẩm thương mại thực tế. Khả năng tự học cao, tư duy hệ thống mạch lạc và luôn hướng tới việc giải quyết các bài toán tự động hóa thông minh nhằm tối ưu chi phí vận hành doanh nghiệp.
+                </p>
             </div>
-        </div>
 
-        <!-- DỰ ÁN NỔI BẬT -->
-        <div class="section">
-            <div class="section-title">Dự án thực tế (Bấm để xem chi tiết)</div>
-            
-            <!-- Dự án 1 -->
-            <div class="info-item">
-                <div class="info-header">
-                    <span>Hệ Thống Quản Lý API Bán Hàng E-Commerce Enterprise</span>
-                    <span>Dự án cá nhân</span>
-                </div>
-                <div class="info-content">
-                    <div style="padding: 20px 0;">
-                        <div class="info-sub">Kiến trúc hệ thống Backend toàn diện, bảo mật và tối ưu hóa xử lý đồng thời</div>
-                        <ul class="info-detail">
-                            <li><strong>Thiết kế kiến trúc:</strong> Xây dựng hệ thống Backend phân tầng chuẩn RESTful API phục vụ luồng nghiệp vụ phức tạp của sàn TMĐT: Quản lý vòng đời sản phẩm đa thuộc tính, quy trình xử lý đơn hàng đa trạng thái, quản lý kho hàng và giỏ hàng thời gian thực.</li>
-                            <li><strong>Bảo mật & Phân quyền:</strong> Thiết kế phân hệ Identity Provider (IdP) sử dụng Spring Security cấu hình cơ chế Stateless Authentication qua JSON Web Token (JWT). Triển khai phân quyền theo vai trò (RBAC) chặt chẽ đến từng Endpoint kết hợp mã hóa bất đối xứng mật khẩu người dùng.</li>
-                            <li><strong>Tối ưu hóa Cơ sở dữ liệu:</strong> Thiết kế cơ sở dữ liệu SQL Server chuẩn hóa dạng 3NF. Trực tiếp giải quyết bài toán thắt nút cổ chai hiệu năng (Bottleneck) bằng cách cấu hình Index (Clustered/Non-Clustered) hợp lý, tối ưu các câu lệnh phức tạp chứa nhiều mệnh đề JOIN/Subquery, giảm thời gian phản hồi (Response Time) của các API thống kê báo cáo từ 4s xuống dưới 200ms trên tập dữ liệu hàng triệu bản ghi giả lập.</li>
-                            <li><strong>Quản trị giao dịch & Ràng buộc:</strong> Áp dụng cơ chế cô lập giao dịch (Transaction Isolation Levels) và xử lý lỗi (Global Exception Handling) đồng bộ nhằm đảm bảo tính toàn vẹn dữ liệu (ACID) tuyệt đối khi xảy ra tranh chấp tài nguyên hệ thống (Ví dụ: Trừ số lượng tồn kho khi nhiều user đặt hàng đồng thời).</li>
-                        </ul>
-                        <div class="tech-stack"><strong>Công nghệ sử dụng:</strong> Java Core (17), Spring Boot, Spring Security, Hibernate/Spring Data JPA, SQL Server, JWT, Maven, RESTful API.</div>
+            <!-- HỌC VẤN -->
+            <div class="main-section">
+                <div class="main-section-title">Học vấn</div>
+                
+                <div class="info-item">
+                    <div class="info-header">
+                        <div class="info-header-left">Đại học FPT</div>
+                        <div class="info-header-right">2023 - Hiện tại</div>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-content-inner">
+                            <div class="info-sub">Chuyên ngành: Kỹ thuật phần mềm (Lộ trình chuẩn quốc tế)</div>
+                            <ul class="info-detail">
+                                <li><strong>Kiến thức cốt lõi:</strong> Hoàn thành xuất sắc các học phần nền tảng cốt lõi bao gồm Cấu trúc dữ liệu & Giải thuật (DSA), Hệ quản trị cơ sở dữ liệu quan hệ (RDBMS), Phân tích & Thiết kế hệ thống (SAD), Kiến trúc hướng dịch vụ (SOA) và Phát triển ứng dụng Web phân tầng.</li>
+                                <li><strong>Chuyên sâu Backend:</strong> Tự nghiên cứu và áp dụng mô hình thiết kế (Design Patterns: Singleton, Factory, Repository, Dependency Injection), vòng đời xử lý request của Spring Framework, cơ chế bất đồng bộ, quản lý ThreadPool và tối ưu hóa bộ nhớ đệm Cache.</li>
+                                <li><strong>Nghiên cứu Trí tuệ nhân tạo:</strong> Đào sâu các phương pháp Tiền xử lý dữ liệu (Data Preprocessing), Kỹ nghệ đặc trưng (Feature Engineering), Học máy có giám sát (Supervised Learning) và các giải pháp tích hợp Pipeline của mô hình AI vào kiến trúc Microservices thông qua cơ chế REST hoặc Message Queue.</li>
+                                <li><strong>Hoạt động học thuật:</strong> Tham gia tích cực các dự án thực hành giả lập doanh nghiệp tại trường với vai trò Trưởng nhóm kỹ thuật (Technical Lead), chịu trách nhiệm thiết kế lược đồ cơ sở dữ liệu (Database Schema), phân chia Module tính năng và tối ưu hóa Logic phía máy chủ.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Dự án 2 -->
-            <div class="info-item">
-                <div class="info-header">
-                    <span>Mô Hình Phân Loại Và Dự Đoán Dữ Liệu Thông Minh Enterprise</span>
-                    <span>Dự án nghiên cứu</span>
+            <!-- DỰ ÁN THỰC TẾ -->
+            <div class="main-section">
+                <div class="main-section-title">Dự án thực tế</div>
+                
+                <!-- Dự án 1 -->
+                <div class="info-item">
+                    <div class="info-header">
+                        <div class="info-header-left">Hệ Thống API Bán Hàng E-Commerce Enterprise</div>
+                        <div class="info-header-right">Dự án cá nhân</div>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-content-inner">
+                            <div class="info-sub">Kiến trúc hệ thống Backend toàn diện, bảo mật và tối ưu hóa xử lý đồng thời</div>
+                            <ul class="info-detail">
+                                <li><strong>Thiết kế kiến trúc:</strong> Xây dựng hệ thống Backend phân tầng chuẩn RESTful API phục vụ luồng nghiệp vụ phức tạp của sàn TMĐT: Quản lý vòng đời sản phẩm đa thuộc tính, quy trình xử lý đơn hàng đa trạng thái, quản lý kho hàng và giỏ hàng thời gian thực.</li>
+                                <li><strong>Bảo mật & Phân quyền:</strong> Thiết kế phân hệ Identity Provider (IdP) sử dụng Spring Security cấu hình cơ chế Stateless Authentication qua JSON Web Token (JWT). Triển khai phân quyền theo vai trò (RBAC) chặt chẽ đến từng Endpoint kết hợp mã hóa bất đối xứng mật khẩu người dùng.</li>
+                                <li><strong>Tối ưu hóa Cơ sở dữ liệu:</strong> Thiết kế cơ sở dữ liệu SQL Server chuẩn hóa dạng 3NF. Trực tiếp giải quyết bài toán thắt nút cổ chai hiệu năng (Bottleneck) bằng cách cấu hình Index (Clustered/Non-Clustered) hợp lý, tối ưu các câu lệnh phức tạp chứa nhiều mệnh đề JOIN/Subquery, giảm thời gian phản hồi (Response Time) của các API thống kê báo cáo từ 4s xuống dưới 200ms trên tập dữ liệu hàng triệu bản ghi giả lập.</li>
+                                <li><strong>Quản trị giao dịch & Ràng buộc:</strong> Áp dụng cơ chế cô lập giao dịch (Transaction Isolation Levels) và xử lý lỗi (Global Exception Handling) đồng bộ nhằm đảm bảo tính toàn vẹn dữ liệu (ACID) tuyệt đối khi xảy ra tranh chấp tài nguyên hệ thống (Ví dụ: Trừ số lượng tồn kho khi nhiều user đặt hàng đồng thời).</li>
+                            </ul>
+                            <div class="tech-stack">Công nghệ: Java Core (17), Spring Boot, Spring Security, Hibernate/Spring Data JPA, SQL Server, JWT, Maven.</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="info-content">
-                    <div style="padding: 20px 0;">
-                        <div class="info-sub">Pipeline khai phá dữ liệu, huấn luyện mô hình Machine Learning giải quyết bài toán dự báo</div>
-                        <ul class="info-detail">
-                            <li><strong>Xử lý dữ liệu thô:</strong> Xây dựng đường ống (Pipeline) thu thập và làm sạch tập dữ liệu lớn. Xử lý triệt để hiện tượng dữ liệu khuyết thiếu (Missing values), lọc bỏ nhiễu (Outliers), mã hóa biến phân loại (One-Hot Encoding, Label Encoding) và chuẩn hóa thang đo dữ liệu (Standardization/MinMax Scaling).</li>
-                            <li><strong>Kỹ nghệ đặc trưng:</strong> Áp dụng các kỹ thuật trích chọn đặc trưng quan trọng thông qua ma trận tương quan (Correlation Matrix) và phân tích tầm quan trọng của biến để giảm chiều dữ liệu, loại bỏ hiện tượng đa cộng tuyến, giúp mô hình tập trung vào các tín hiệu dữ liệu cốt lõi.</li>
-                            <li><strong>Huấn luyện & Thực nghiệm:</strong> Thử nghiệm song song nhiều thuật toán học máy từ cơ bản đến phức tạp như Logistic Regression, Random Forest, Support Vector Machine (SVM) và Gradient Boosting để đánh giá bài toán phân loại/dự đoán xu hướng hành vi người dùng.</li>
-                            <li><strong>Tối ưu hóa siêu tham số:</strong> Triển khai kỹ thuật GridSearchCV kết hợp K-Fold Cross Validation nhằm tinh chỉnh các siêu tham số (Hyperparameters) của mô hình, ngăn chặn hiện tượng quá khớp (Overfitting) hoặc dưới khớp (Underfitting). Nâng chỉ số Accuracy và F1-Score trên tập dữ liệu kiểm thử đạt mức tối ưu cao (>90%), sẵn sàng xuất bản cấu trúc mô hình dạng file đóng gói phục vụ tích hợp ứng dụng thực tế.</li>
-                        </ul>
-                        <div class="tech-stack"><strong>Công nghệ sử dụng:</strong> Python, Jupyter Notebook, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Google Colab.</div>
+
+                <!-- Dự án 2 -->
+                <div class="info-item">
+                    <div class="info-header">
+                        <div class="info-header-left">Mô Hình Phân Loại & Dự Đoán Dữ Liệu Thông Minh</div>
+                        <div class="info-header-right">Dự án nghiên cứu</div>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-content-inner">
+                            <div class="info-sub">Pipeline khai phá dữ liệu, huấn luyện mô hình Machine Learning giải quyết bài toán dự báo</div>
+                            <ul class="info-detail">
+                                <li><strong>Xử lý dữ liệu thô:</strong> Xây dựng đường ống (Pipeline) thu thập và làm sạch tập dữ liệu lớn. Xử lý triệt để hiện tượng dữ liệu khuyết thiếu (Missing values), lọc bỏ nhiễu (Outliers), mã hóa biến phân loại (One-Hot Encoding, Label Encoding) và chuẩn hóa thang đo dữ liệu (Standardization/MinMax Scaling).</li>
+                                <li><strong>Kỹ nghệ đặc trưng:</strong> Áp dụng các kỹ thuật trích chọn đặc trưng quan trọng thông qua ma trận tương quan (Correlation Matrix) và phân tích tầm quan trọng của biến để giảm chiều dữ liệu, loại bỏ hiện tượng đa cộng tuyến, giúp mô hình tập trung vào các tín hiệu dữ liệu cốt lõi.</li>
+                                <li><strong>Huấn luyện & Thực nghiệm:</strong> Thử nghiệm song song nhiều thuật toán học máy từ cơ bản đến phức tạp như Logistic Regression, Random Forest, Support Vector Machine (SVM) và Gradient Boosting để đánh giá bài toán phân loại/dự đoán xu hướng hành vi người dùng.</li>
+                                <li><strong>Tối ưu hóa siêu tham số:</strong> Triển khai kỹ thuật GridSearchCV kết hợp K-Fold Cross Validation nhằm tinh chỉnh các siêu tham số (Hyperparameters) của mô hình, ngăn chặn hiện tượng quá khớp (Overfitting) hoặc dưới khớp (Underfitting). Nâng chỉ số Accuracy và F1-Score trên tập dữ liệu kiểm thử đạt mức tối ưu cao (>90%), sẵn sàng xuất bản cấu trúc mô hình dạng file đóng gói phục vụ tích hợp ứng dụng thực tế.</li>
+                            </ul>
+                            <div class="tech-stack">Công nghệ: Python, Jupyter Notebook, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Google Colab.</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- KỸ NĂNG & CÔNG CỤ -->
-        <div class="section">
-            <div class="section-title">Kỹ năng & Công cụ chuyên sâu</div>
-            <div class="skills-list">
-                <div class="skill-item">
-                    <div class="badge">Ngôn ngữ lập trình</div>
-                    <div class="skill-desc">Thành thạo lập trình hướng đối tượng (OOP) vững chắc với <strong>Java</strong> (Đa luồng, Collections API, Stream API, Functional Programming). Làm chủ ngôn ngữ <strong>Python</strong> phục vụ cấu trúc kịch bản tự động hóa, thao tác cấu trúc cấu trúc ma trận dữ liệu mảng. Có kiến thức cơ bản về SQL Script vững vàng.</div>
-                </div>
-                <div class="skill-item">
-                    <div class="badge">Framework Backend</div>
-                    <div class="skill-desc">Kinh nghiệm thực hành sâu sắc với hệ sinh thái <strong>Spring Boot</strong> (Spring MVC, Spring Security, Spring Data JPA). Hiểu sâu về cách thức hoạt động của IoC Container, Dependency Injection, Bean Lifecycle và cơ chế ánh xạ thực thể Object-Relational Mapping (ORM) qua Hibernate. Thiết kế cấu trúc hệ thống phân tầng Controller-Service-Repository chuẩn chỉ.</div>
-                </div>
-                <div class="skill-item">
-                    <div class="badge">Cơ sở dữ liệu lớn</div>
-                    <div class="skill-desc">Tư duy thiết kế cơ sở dữ liệu quan hệ tối ưu. Thành thạo việc tạo lập lược đồ dữ liệu, cấu hình ràng buộc toàn vẹn. Kỹ năng chuyên sâu về phân tích truy vấn (Execution Plan), tối ưu hóa tốc độ câu lệnh Indexing, viết Stored Procedures, Triggers phức tạp. Khả năng làm việc tốt với <strong>SQL Server</strong>, MySQL và đang tiếp cận cơ sở dữ liệu NoSQL (Redis, MongoDB).</div>
-                </div>
-                <div class="skill-item">
-                    <div class="badge">AI & Machine Learning</div>
-                    <div class="skill-desc">Nắm vững vòng đời phát triển của một dự án Trí tuệ nhân tạo (CRISP-DM). Thành thạo các thư viện khoa học dữ liệu chuyên dụng: <strong>Pandas, NumPy, Scikit-learn</strong>. Hiểu sâu thuật toán phân loại, hồi quy, phân cụm và các chỉ số đo lường hiệu năng mô hình (Accuracy, Precision, Recall, F1-Score, ROC-AUC). Định hướng phát triển sâu về mảng triển khai kiến trúc hệ thống AI (MLOps).</div>
-                </div>
-                <div class="skill-item">
-                    <div class="badge">Công cụ & Quy trình</div>
-                    <div class="skill-desc">Sử dụng thành thạo hệ thống quản lý phiên bản mã nguồn <strong>Git/GitHub</strong> (Git Flow, Pull Request, Giải quyết xung đột mã nguồn Code Conflict). Thành thạo công cụ kiểm thử thiết kế API <strong>Postman</strong>. Tư duy phát triển phần mềm theo mô hình Agile/Scrum. Khả năng đọc hiểu, nghiên cứu các tài liệu kỹ thuật chuyên sâu bằng tiếng Anh rất tốt.</div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -372,10 +422,8 @@
                 const item = header.parentElement;
                 const content = item.querySelector('.info-content');
                 
-                // Toggle active class
                 item.classList.toggle('active');
                 
-                // Calculate dynamic height for smooth transition without jumping effect
                 if (item.classList.contains('active')) {
                     content.style.maxHeight = content.scrollHeight + "px";
                 } else {
