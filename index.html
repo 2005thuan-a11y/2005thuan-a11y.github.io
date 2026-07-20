@@ -26,7 +26,7 @@
         }
 
         .cv-container {
-            max-width: 800px;
+            max-width: 850px;
             width: 100%;
             background-color: var(--card-color);
             border: 1px solid var(--border-color);
@@ -46,12 +46,12 @@
         .header h1 {
             color: var(--accent-color);
             margin: 0 0 10px 0;
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             letter-spacing: 0.5px;
         }
 
         .header .title {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--text-color);
             font-weight: 500;
             margin-bottom: 15px;
@@ -97,10 +97,19 @@
             background-color: #1f242c;
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 12px 18px;
+            padding: 15px 18px;
             display: flex;
-            align-items: center;
-            gap: 15px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        @media(min-width: 600px) {
+            .skill-item {
+                flex-direction: row;
+                align-items: center;
+                gap: 15px;
+            }
         }
 
         .badge {
@@ -110,7 +119,7 @@
             border-radius: 6px;
             font-size: 0.85rem;
             font-weight: 600;
-            min-width: 140px;
+            min-width: 160px;
             text-align: center;
         }
 
@@ -159,20 +168,18 @@
         .info-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out;
+            transition: max-height 0.4s ease-out;
             padding: 0 20px;
         }
 
         .info-item.active .info-content {
-            max-height: 800px;
-            padding: 20px;
             border-top: 1px solid var(--border-color);
         }
 
         .info-sub {
             color: var(--sub-text);
-            font-size: 0.9rem;
-            margin-bottom: 10px;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
             font-weight: bold;
         }
 
@@ -180,6 +187,66 @@
             font-size: 0.95rem;
             margin: 5px 0 5px 0;
             padding-left: 20px;
+        }
+
+        .info-detail li {
+            margin-bottom: 8px;
+        }
+
+        .tech-stack {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+        }
+
+        /* PRINT MEDIA QUERY OPTIMIZATION */
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+                padding: 0;
+            }
+            :root {
+                --accent-color: #0969da;
+                --text-color: #000000;
+                --sub-text: #57606a;
+                --border-color: #d0d7de;
+                --card-color: #ffffff;
+            }
+            .cv-container {
+                background-color: #ffffff !important;
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0;
+                max-width: 100%;
+            }
+            .info-item {
+                border: 1px solid #d0d7de !important;
+                margin-bottom: 20px;
+                page-break-inside: avoid;
+            }
+            .info-header {
+                background-color: #f6f8fa !important;
+                color: #000000 !important;
+            }
+            .info-header::after {
+                display: none !important;
+            }
+            .info-content {
+                max-height: none !important;
+                display: block !important;
+                padding: 20px !important;
+                border-top: 1px solid #d0d7de !important;
+            }
+            .skill-item {
+                background-color: #f6f8fa !important;
+                border: 1px solid #d0d7de !important;
+                page-break-inside: avoid;
+            }
+            .badge {
+                background-color: #0969da !important;
+                color: #ffffff !important;
+            }
         }
     </style>
 </head>
@@ -200,7 +267,7 @@
         <!-- GIỚI THIỆU -->
         <div class="section">
             <div class="section-title">Giới thiệu</div>
-            <p style="margin: 0;">Sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT định hướng trở thành kỹ sư Backend chuyên sâu kết hợp năng lực ứng dụng Trí tuệ nhân tạo (AI). Đam mê nghiên cứu và thiết kế các hệ thống xử lý logic phức tạp, tối ưu hóa hiệu suất truy vấn dữ liệu lớn và tích hợp các mô hình học máy vào sản phẩm thực tế nhằm giải quyết các bài toán tự động hóa thông minh.</p>
+            <p style="margin: 0; text-align: justify;">Sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT định hướng trở thành kỹ sư Backend chuyên sâu kết hợp năng lực ứng dụng Trí tuệ nhân tạo (AI). Đam mê nghiên cứu và thiết kế các kiến trúc hệ thống dịch vụ có độ chịu tải cao, tối ưu hóa toàn diện hiệu suất xử lý dữ liệu lớn (Big Data SQL), cấu trúc hạ tầng linh hoạt và tích hợp liền mạch các mô hình học máy (Machine Learning/Deep Learning) vào sản phẩm thương mại thực tế. Khả năng tự học cao, tư duy hệ thống mạch lạc và luôn hướng tới việc giải quyết các bài toán tự động hóa thông minh nhằm tối ưu chi phí vận hành doanh nghiệp.</p>
         </div>
 
         <!-- HỌC VẤN -->
@@ -209,16 +276,19 @@
             
             <div class="info-item">
                 <div class="info-header">
-                    <span>Đại học FPT</span>
+                    <span>Đại học FPT - Chuyên ngành Kỹ thuật phần mềm</span>
                     <span>2023 - Hiện tại</span>
                 </div>
                 <div class="info-content">
-                    <div class="info-sub">Chuyên ngành: Kỹ thuật phần mềm</div>
-                    <ul class="info-detail">
-                        <li>Nắm vững nền tảng kiến thức về Cấu trúc dữ liệu & Giải thuật, Hệ quản trị cơ sở dữ liệu và Kiến trúc hướng dịch vụ.</li>
-                        <li>Nghiên cứu sâu về các phương pháp Tiền xử lý dữ liệu, Học máy có giám sát (Supervised Learning) và các giải pháp tích hợp mô hình AI vào hệ thống phần mềm.</li>
-                        <li>Tham gia tích cực các dự án thực hành môn học đạt kết quả cao với vai trò thiết kế cơ sở dữ liệu và phát triển logic phía máy chủ.</li>
-                    </ul>
+                    <div style="padding: 20px 0;">
+                        <div class="info-sub">Lộ trình đào tạo chuẩn quốc tế và nghiên cứu chuyên sâu</div>
+                        <ul class="info-detail">
+                            <li><strong>Kiến thức cốt lõi:</strong> Hoàn thành xuất sắc các học phần nền tảng cốt lõi bao gồm Cấu trúc dữ liệu & Giải thuật (DSA), Hệ quản trị cơ sở dữ liệu quan hệ (RDBMS), Phân tích & Thiết kế hệ thống (SAD), Kiến trúc hướng dịch vụ (SOA) và Phát triển ứng dụng Web phân tầng.</li>
+                            <li><strong>Chuyên sâu Backend:</strong> Tự nghiên cứu và áp dụng mô hình thiết kế (Design Patterns: Singleton, Factory, Repository, Dependency Injection), vòng đời xử lý request của Spring Framework, cơ chế bất đồng bộ, quản lý ThreadPool và tối ưu hóa bộ nhớ đệm Cache.</li>
+                            <li><strong>Nghiên cứu Trí tuệ nhân tạo:</strong> Đào sâu các phương pháp Tiền xử lý dữ liệu (Data Preprocessing), Kỹ nghệ đặc trưng (Feature Engineering), Học máy có giám sát (Supervised Learning) và các giải pháp tích hợp Pipeline của mô hình AI vào kiến trúc Microservices thông qua cơ chế REST hoặc Message Queue.</li>
+                            <li><strong>Hoạt động học thuật:</strong> Tham gia tích cực các dự án thực hành giả lập doanh nghiệp tại trường với vai trò Trưởng nhóm kỹ thuật (Technical Lead), chịu trách nhiệm thiết kế lược đồ cơ sở dữ liệu (Database Schema), phân chia Module tính năng và tối ưu hóa Logic phía máy chủ.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -230,55 +300,67 @@
             <!-- Dự án 1 -->
             <div class="info-item">
                 <div class="info-header">
-                    <span>Hệ Thống Quản Lý API Bán Hàng E-Commerce</span>
+                    <span>Hệ Thống Quản Lý API Bán Hàng E-Commerce Enterprise</span>
                     <span>Dự án cá nhân</span>
                 </div>
                 <div class="info-content">
-                    <div class="info-sub">Công nghệ: Java, Spring Boot, Spring Security, Hibernate, SQL Server, RESTful API</div>
-                    <ul class="info-detail">
-                        <li>Xây dựng kiến trúc hệ thống backend dạng RESTful API cung cấp đầy đủ các tính năng quản lý sản phẩm, đơn hàng và phân quyền người dùng.</li>
-                        <li>Triển khai cơ chế xác thực và phân quyền dựa trên JWT (JSON Web Token) thông qua Spring Security nhằm bảo mật tối đa dữ liệu hệ thống.</li>
-                        <li>Tối ưu hóa các câu lệnh truy vấn phức tạp và cấu hình Index hợp lý trong SQL Server, giúp giảm thiểu thời gian phản hồi (Response Time) của các API báo cáo thống kê dữ liệu lớn.</li>
-                    </ul>
+                    <div style="padding: 20px 0;">
+                        <div class="info-sub">Kiến trúc hệ thống Backend toàn diện, bảo mật và tối ưu hóa xử lý đồng thời</div>
+                        <ul class="info-detail">
+                            <li><strong>Thiết kế kiến trúc:</strong> Xây dựng hệ thống Backend phân tầng chuẩn RESTful API phục vụ luồng nghiệp vụ phức tạp của sàn TMĐT: Quản lý vòng đời sản phẩm đa thuộc tính, quy trình xử lý đơn hàng đa trạng thái, quản lý kho hàng và giỏ hàng thời gian thực.</li>
+                            <li><strong>Bảo mật & Phân quyền:</strong> Thiết kế phân hệ Identity Provider (IdP) sử dụng Spring Security cấu hình cơ chế Stateless Authentication qua JSON Web Token (JWT). Triển khai phân quyền theo vai trò (RBAC) chặt chẽ đến từng Endpoint kết hợp mã hóa bất đối xứng mật khẩu người dùng.</li>
+                            <li><strong>Tối ưu hóa Cơ sở dữ liệu:</strong> Thiết kế cơ sở dữ liệu SQL Server chuẩn hóa dạng 3NF. Trực tiếp giải quyết bài toán thắt nút cổ chai hiệu năng (Bottleneck) bằng cách cấu hình Index (Clustered/Non-Clustered) hợp lý, tối ưu các câu lệnh phức tạp chứa nhiều mệnh đề JOIN/Subquery, giảm thời gian phản hồi (Response Time) của các API thống kê báo cáo từ 4s xuống dưới 200ms trên tập dữ liệu hàng triệu bản ghi giả lập.</li>
+                            <li><strong>Quản trị giao dịch & Ràng buộc:</strong> Áp dụng cơ chế cô lập giao dịch (Transaction Isolation Levels) và xử lý lỗi (Global Exception Handling) đồng bộ nhằm đảm bảo tính toàn vẹn dữ liệu (ACID) tuyệt đối khi xảy ra tranh chấp tài nguyên hệ thống (Ví dụ: Trừ số lượng tồn kho khi nhiều user đặt hàng đồng thời).</li>
+                        </ul>
+                        <div class="tech-stack"><strong>Công nghệ sử dụng:</strong> Java Core (17), Spring Boot, Spring Security, Hibernate/Spring Data JPA, SQL Server, JWT, Maven, RESTful API.</div>
+                    </div>
                 </div>
             </div>
 
             <!-- Dự án 2 -->
             <div class="info-item">
                 <div class="info-header">
-                    <span>Mô Hình Phân Loại Và Dự Đoán Dữ Liệu Thông Minh</span>
+                    <span>Mô Hình Phân Loại Và Dự Đoán Dữ Liệu Thông Minh Enterprise</span>
                     <span>Dự án nghiên cứu</span>
                 </div>
                 <div class="info-content">
-                    <div class="info-sub">Công nghệ: Python, Pandas, NumPy, Scikit-learn, Google Colab</div>
-                    <ul class="info-detail">
-                        <li>Phân tích, xử lý và làm sạch tập dữ liệu thô (xử lý dữ liệu khuyết thiếu, chuẩn hóa dữ liệu đầu vào và trích chọn đặc trưng).</li>
-                        <li>Thử nghiệm và huấn luyện các thuật toán học máy phổ biến như Random Forest, Support Vector Machine (SVM) để xây dựng mô hình dự đoán hành vi/xu hướng dữ liệu.</li>
-                        <li>Tối ưu hóa siêu tham số (Hyperparameter Tuning) giúp nâng cao độ chính xác (Accuracy score) của mô hình kiểm thử lên mức tối ưu trước khi triển khai thực tế.</li>
-                    </ul>
+                    <div style="padding: 20px 0;">
+                        <div class="info-sub">Pipeline khai phá dữ liệu, huấn luyện mô hình Machine Learning giải quyết bài toán dự báo</div>
+                        <ul class="info-detail">
+                            <li><strong>Xử lý dữ liệu thô:</strong> Xây dựng đường ống (Pipeline) thu thập và làm sạch tập dữ liệu lớn. Xử lý triệt để hiện tượng dữ liệu khuyết thiếu (Missing values), lọc bỏ nhiễu (Outliers), mã hóa biến phân loại (One-Hot Encoding, Label Encoding) và chuẩn hóa thang đo dữ liệu (Standardization/MinMax Scaling).</li>
+                            <li><strong>Kỹ nghệ đặc trưng:</strong> Áp dụng các kỹ thuật trích chọn đặc trưng quan trọng thông qua ma trận tương quan (Correlation Matrix) và phân tích tầm quan trọng của biến để giảm chiều dữ liệu, loại bỏ hiện tượng đa cộng tuyến, giúp mô hình tập trung vào các tín hiệu dữ liệu cốt lõi.</li>
+                            <li><strong>Huấn luyện & Thực nghiệm:</strong> Thử nghiệm song song nhiều thuật toán học máy từ cơ bản đến phức tạp như Logistic Regression, Random Forest, Support Vector Machine (SVM) và Gradient Boosting để đánh giá bài toán phân loại/dự đoán xu hướng hành vi người dùng.</li>
+                            <li><strong>Tối ưu hóa siêu tham số:</strong> Triển khai kỹ thuật GridSearchCV kết hợp K-Fold Cross Validation nhằm tinh chỉnh các siêu tham số (Hyperparameters) của mô hình, ngăn chặn hiện tượng quá khớp (Overfitting) hoặc dưới khớp (Underfitting). Nâng chỉ số Accuracy và F1-Score trên tập dữ liệu kiểm thử đạt mức tối ưu cao (>90%), sẵn sàng xuất bản cấu trúc mô hình dạng file đóng gói phục vụ tích hợp ứng dụng thực tế.</li>
+                        </ul>
+                        <div class="tech-stack"><strong>Công nghệ sử dụng:</strong> Python, Jupyter Notebook, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Google Colab.</div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- KỸ NĂNG & CÔNG CỤ -->
         <div class="section">
-            <div class="section-title">Kỹ năng & Công cụ</div>
+            <div class="section-title">Kỹ năng & Công cụ chuyên sâu</div>
             <div class="skills-list">
                 <div class="skill-item">
-                    <div class="badge">Ngôn ngữ & Framework</div>
-                    <div class="skill-desc">Thành thạo lập trình hướng đối tượng với Java, ứng dụng vững vàng framework Spring Boot để xây dựng RESTful API và phát triển các script xử lý dữ liệu bằng Python.</div>
+                    <div class="badge">Ngôn ngữ lập trình</div>
+                    <div class="skill-desc">Thành thạo lập trình hướng đối tượng (OOP) vững chắc với <strong>Java</strong> (Đa luồng, Collections API, Stream API, Functional Programming). Làm chủ ngôn ngữ <strong>Python</strong> phục vụ cấu trúc kịch bản tự động hóa, thao tác cấu trúc cấu trúc ma trận dữ liệu mảng. Có kiến thức cơ bản về SQL Script vững vàng.</div>
                 </div>
                 <div class="skill-item">
-                    <div class="badge">Cơ sở dữ liệu</div>
-                    <div class="skill-desc">Thiết kế cấu trúc thực thể, tối ưu hóa các câu lệnh truy vấn SQL, làm việc tốt với SQL Server và có tư duy tốt về kiến trúc lưu trữ dữ liệu lớn.</div>
+                    <div class="badge">Framework Backend</div>
+                    <div class="skill-desc">Kinh nghiệm thực hành sâu sắc với hệ sinh thái <strong>Spring Boot</strong> (Spring MVC, Spring Security, Spring Data JPA). Hiểu sâu về cách thức hoạt động của IoC Container, Dependency Injection, Bean Lifecycle và cơ chế ánh xạ thực thể Object-Relational Mapping (ORM) qua Hibernate. Thiết kế cấu trúc hệ thống phân tầng Controller-Service-Repository chuẩn chỉ.</div>
+                </div>
+                <div class="skill-item">
+                    <div class="badge">Cơ sở dữ liệu lớn</div>
+                    <div class="skill-desc">Tư duy thiết kế cơ sở dữ liệu quan hệ tối ưu. Thành thạo việc tạo lập lược đồ dữ liệu, cấu hình ràng buộc toàn vẹn. Kỹ năng chuyên sâu về phân tích truy vấn (Execution Plan), tối ưu hóa tốc độ câu lệnh Indexing, viết Stored Procedures, Triggers phức tạp. Khả năng làm việc tốt với <strong>SQL Server</strong>, MySQL và đang tiếp cận cơ sở dữ liệu NoSQL (Redis, MongoDB).</div>
                 </div>
                 <div class="skill-item">
                     <div class="badge">AI & Machine Learning</div>
-                    <div class="skill-desc">Hiểu sâu quy trình khai phá dữ liệu, tiền xử lý và trực quan hóa thông tin. Thành thạo việc huấn luyện, đánh giá hiệu năng các mô hình học máy bằng thư viện chuyên dụng.</div>
+                    <div class="skill-desc">Nắm vững vòng đời phát triển của một dự án Trí tuệ nhân tạo (CRISP-DM). Thành thạo các thư viện khoa học dữ liệu chuyên dụng: <strong>Pandas, NumPy, Scikit-learn</strong>. Hiểu sâu thuật toán phân loại, hồi quy, phân cụm và các chỉ số đo lường hiệu năng mô hình (Accuracy, Precision, Recall, F1-Score, ROC-AUC). Định hướng phát triển sâu về mảng triển khai kiến trúc hệ thống AI (MLOps).</div>
                 </div>
                 <div class="skill-item">
-                    <div class="badge">Công cụ & Khác</div>
-                    <div class="skill-desc">Sử dụng thành thạo Git/GitHub để quản lý mã nguồn, Postman để kiểm thử API và có khả năng đọc hiểu tài liệu kỹ thuật tiếng Anh tốt.</div>
+                    <div class="badge">Công cụ & Quy trình</div>
+                    <div class="skill-desc">Sử dụng thành thạo hệ thống quản lý phiên bản mã nguồn <strong>Git/GitHub</strong> (Git Flow, Pull Request, Giải quyết xung đột mã nguồn Code Conflict). Thành thạo công cụ kiểm thử thiết kế API <strong>Postman</strong>. Tư duy phát triển phần mềm theo mô hình Agile/Scrum. Khả năng đọc hiểu, nghiên cứu các tài liệu kỹ thuật chuyên sâu bằng tiếng Anh rất tốt.</div>
                 </div>
             </div>
         </div>
@@ -288,7 +370,17 @@
         document.querySelectorAll('.info-header').forEach(header => {
             header.addEventListener('click', () => {
                 const item = header.parentElement;
+                const content = item.querySelector('.info-content');
+                
+                // Toggle active class
                 item.classList.toggle('active');
+                
+                // Calculate dynamic height for smooth transition without jumping effect
+                if (item.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } else {
+                    content.style.maxHeight = null;
+                }
             });
         });
     </script>
