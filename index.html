@@ -48,6 +48,25 @@
 
         .profile-section {
             margin-bottom: 45px;
+            text-align: center;
+        }
+
+        /* KHUNG ẢNH CHÂN DUNG */
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 2px solid var(--accent-color);
+            padding: 4px;
+            background-color: var(--bg-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
 
         .profile-name {
@@ -91,6 +110,7 @@
 
         .contact-list li {
             margin-bottom: 16px;
+            text-align: left;
         }
 
         .contact-list strong {
@@ -120,6 +140,7 @@
 
         .skill-group {
             margin-bottom: 22px;
+            text-align: left;
         }
 
         .skill-group-title {
@@ -133,6 +154,23 @@
             font-size: 0.85rem;
             color: var(--sub-text);
             text-align: justify;
+        }
+
+        .hobby-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.88rem;
+            color: var(--text-color);
+            font-weight: 500;
+            text-align: left;
+        }
+
+        .hobby-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         /* MAIN CONTENT (RIGHT COLUMN) */
@@ -319,6 +357,11 @@
             .info-item {
                 page-break-inside: avoid;
             }
+            .profile-avatar {
+                border-color: #000000 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
         }
     </style>
 </head>
@@ -329,6 +372,8 @@
         <!-- SIDEBAR (LEFT COLUMN) -->
         <div class="sidebar">
             <div class="profile-section">
+                <!-- Đường dẫn ảnh đã đồng bộ chuẩn xác với repo GitHub của bạn -->
+                <img src="avatar.png" alt="Thái Thái Thuận" class="profile-avatar">
                 <h1 class="profile-name">Thái Thái Thuận</h1>
                 <div class="profile-title">Java Backend Developer<br>& AI Engineer</div>
             </div>
@@ -379,6 +424,14 @@
                     <div class="skill-group-desc">Git/GitHub (Git Flow), Postman, Agile/Scrum. Đọc hiểu tài liệu tiếng Anh tốt.</div>
                 </div>
             </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Sở thích</div>
+                <ul class="hobby-list">
+                    <li>⚡ Đá banh (Rèn luyện thể lực, tư duy chiến thuật đồng đội)</li>
+                    <li>🎱 Chơi bida (Rèn luyện sự tập trung, tính toán góc độ hình học)</li>
+                </ul>
+            </div>
         </div>
 
         <!-- MAIN CONTENT (RIGHT COLUMN) -->
@@ -390,6 +443,26 @@
                 <p class="about-text">
                     Sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT định hướng trở thành kỹ sư Backend chuyên sâu kết hợp năng lực ứng dụng Trí tuệ nhân tạo (AI). Đam mê nghiên cứu và thiết kế các kiến trúc hệ thống dịch vụ có độ chịu tải cao, tối ưu hóa toàn diện hiệu suất xử lý dữ liệu lớn (Big Data SQL), cấu trúc hạ tầng linh hoạt và tích hợp liền mạch các mô hình học máy (Machine Learning/Deep Learning) vào sản phẩm thương mại thực tế. Khả năng tự học cao, tư duy hệ thống mạch lạc và luôn hướng tới việc giải quyết các bài toán tự động hóa thông minh nhằm tối ưu chi phí vận hành doanh nghiệp.
                 </p>
+            </div>
+
+            <!-- MỤC TIÊU & ĐỊNH HƯỚNG -->
+            <div class="main-section">
+                <div class="main-section-title">Mục tiêu & Định hướng nghề nghiệp</div>
+                <div class="info-item">
+                    <div class="info-header">
+                        <div class="info-header-left">Mục tiêu ngắn hạn & Dài hạn</div>
+                        <div class="info-header-right">Định hướng tương lai</div>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-content-inner">
+                            <ul class="info-detail">
+                                <li><strong>Mục tiêu ngắn hạn (1-2 năm tới):</strong> Tốt nghiệp chuyên ngành Kỹ thuật phần mềm tại Đại học FPT với kết quả xuất sắc. Tìm kiếm cơ hội làm việc thực tế tại các doanh nghiệp công nghệ với vị trí Java Backend Developer hoặc AI Integration Engineer. Tập trung làm chủ các bài toán thực tế về tối ưu hóa cơ sở dữ liệu quy mô lớn, kiến trúc hệ thống Microservices nâng cao và hoàn thiện kỹ năng triển khai kiểm thử tự động (Automation Testing/CI-CD).</li>
+                                <li><strong>Định hướng dài hạn (3-5 năm tới):</strong> Phát triển toàn diện năng lực chuyên môn để trở thành một <strong>Senior Backend Engineer / Technical Architect</strong>. Song song với đó, nghiên cứu sâu hơn về phân hệ MLOps để xây dựng và tự động hóa toàn bộ vòng đời triển khai các mô hình Trí tuệ nhân tạo (AI) lên môi trường Production chịu tải lớn. </li>
+                                <li><strong>Giá trị cốt lõi hướng đến:</strong> Không chỉ dừng lại ở việc viết code, định hướng bản thân trở thành một kỹ sư giải pháp, dùng tư duy logic mạnh mẽ của Backend kết hợp tính đột phá của AI để trực tiếp giải quyết các bài toán tối ưu quy trình kinh doanh và mang lại giá trị thực tế cao nhất cho doanh nghiệp.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- HỌC VẤN -->
