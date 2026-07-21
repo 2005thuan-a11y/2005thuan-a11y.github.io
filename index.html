@@ -42,6 +42,10 @@
         .expertise-card { background: var(--bg-light); padding: 12px; border-radius: 5px; }
         .expertise-card h4 { color: var(--primary-color); margin-bottom: 5px; }
 
+        .activity-section { margin-top: 20px; }
+        .activity-img { width: 100%; max-width: 450px; border-radius: 8px; border: 1px solid #cbd5e0; margin-top: 10px; display: block; }
+        .activity-caption { font-size: 0.9rem; color: #718096; margin-top: 5px; font-style: italic; }
+
         @media (max-width: 768px) {
             .container { grid-template-columns: 1fr; }
             .main-content { padding: 20px; }
@@ -53,8 +57,8 @@
 <div class="container">
     <!-- CỘT TRÁI - THÔNG TIN CÁ NHÂN & KỸ NĂNG -->
     <div class="sidebar">
-        <!-- Thay link ảnh cá nhân tại src -->
-        <img src="avatar.jpg" alt="Trần Thanh Sơn" class="profile-img">
+        <!-- Ảnh đại diện 2.jpg -->
+        <img src="2.jpg" alt="Trần Thanh Sơn" class="profile-img">
         
         <h2>THÔNG TIN LIÊN HỆ</h2>
         <div class="contact-info">
@@ -116,6 +120,13 @@
                 <h4>Bếp Bánh & Buffet</h4>
                 <p>Thiết kế & chế biến đa dạng các loại bánh cho tiệc Buffet sáng.</p>
             </div>
+        </div>
+
+        <div class="section-title">HÌNH ẢNH HOẠT ĐỘNG</div>
+        <div class="activity-section">
+            <!-- Ảnh hoạt động 1.jpg -->
+            <img src="1.jpg" alt="Trình bày tác phẩm Ẩm thực Tiệc Rồng Phụng" class="activity-img">
+            <p class="activity-caption">Trình bày tác phẩm Ẩm thực Tiệc Rồng Phụng</p>
         </div>
 
         <div class="section-title">KINH NGHIỆM GIẢNG DẠY & ĐÀO TẠO</div>
