@@ -216,20 +216,44 @@
             font-size: 0.85rem; 
         }
 
+        /* Bố cục tài liệu minh chứng dạng lưới ngang logic */
         .doc-container { 
-            display: flex; 
-            gap: 10px; 
-            flex-wrap: wrap; 
-            margin-top: 10px; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+            gap: 15px; 
+            margin-top: 15px; 
+            align-items: start;
+        }
+
+        .doc-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 8px;
+            text-align: center;
         }
 
         .doc-img { 
             width: 100%; 
-            max-width: 320px; 
+            height: auto;
+            max-height: 280px;
             border-radius: 6px; 
             border: 1px solid #cbd5e0; 
             display: block; 
             object-fit: contain; 
+            background: #fff;
+            transition: transform 0.2s ease;
+        }
+
+        .doc-img:hover {
+            transform: scale(1.02);
+        }
+
+        .doc-title {
+            font-size: 0.78rem;
+            color: #4a5568;
+            margin-top: 6px;
+            font-weight: 600;
         }
 
         .expertise-grid { 
@@ -258,7 +282,7 @@
         @media (max-width: 768px) {
             .sidebar { width: 100%; }
             .main-content { padding: 15px; }
-            .doc-img { max-width: 100%; }
+            .doc-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -342,13 +366,20 @@
                     <h4>Đầu Bếp Chính Phục Vụ Sự Kiện Ngoại Giao Cấp Nhà Nước</h4>
                     <div class="company">Đại sứ quán Việt Nam tại Bangladesh (Thủ đô Dhaka)</div>
                     <ul>
-                        <li>Được Đại sứ quán Việt Nam cử chọn làm Đầu bếp chính phục vụ Tiệc đặc biệt và Quảng diễn ẩm thực Buffet trong chuyến thăm cấp Nhà nước của Chủ tịch nước Trần Đại Quang tới Bangladesh từ ngày 02 - 09/03/2018</li>
-                        <li>Đảm nhận vai trò giới thiệu văn hóa ẩm thực Việt Nam tới các quan chức, khách quý quốc tế tại khách sạn Pan Pacific Sonargaon, Dhaka</li>
+                        <li>Được Đại sứ quán Việt Nam cử chọn làm Đầu bếp chính phục vụ Tiệc đặc biệt và Quảng diễn ẩm thực Buffet trong chuyến thăm cấp Nhà nước của Chủ tịch nước Trần Đại Quang tới Bangladesh từ ngày 02 - 09/03/2018.</li>
+                        <li>Đảm nhận vai trò giới thiệu văn hóa ẩm thực Việt Nam tới các quan chức, khách quý quốc tế tại khách sạn Pan Pacific Sonargaon, Dhaka.</li>
                     </ul>
                     
+                    <!-- Bố cục ảnh minh chứng nằm ngang song song -->
                     <div class="doc-container">
-                        <img src="5.jpg" alt="Bằng chứng nhận Đại sứ quán" class="doc-img">
-                        <img src="4.jpg" alt="Công điện Đại sứ quán Việt Nam" class="doc-img">
+                        <div class="doc-card">
+                            <img src="5.jpg" alt="Bằng chứng nhận Đại sứ quán" class="doc-img">
+                            <div class="doc-title">Bằng chứng nhận từ Đại sứ quán</div>
+                        </div>
+                        <div class="doc-card">
+                            <img src="4.jpg" alt="Công điện Đại sứ quán Việt Nam" class="doc-img">
+                            <div class="doc-title">Công điện điều động Đại sứ quán</div>
+                        </div>
                     </div>
                 </div>
             </div>
