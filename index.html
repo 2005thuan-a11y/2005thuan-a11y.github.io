@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Điện Tử - TRẦN THANH SƠN | Bếp Trưởng Cao Cấp</title>
+    <title>CV Điện Tử - TRẦN THANH SƠN | Executive Chef</title>
     <link rel="shortcut icon" type="image/x-icon" href="2.jpg">
     <style>
         :root {
-            --primary-color: #1a365d;
-            --accent-color: #c53030;
-            --text-color: #2d3748;
-            --bg-light: #f7fafc;
+            --primary-color: #0f2942;      /* Deep Navy Blue */
+            --secondary-color: #d4af37;    /* Elegant Gold */
+            --accent-color: #9e2a2b;       /* Muted Burgundy */
+            --text-main: #2c3e50;          /* Charcoal Body Text */
+            --bg-body: #f4f6f9;            /* Cool Light Grey */
+            --bg-card: #ffffff;
             --border-color: #e2e8f0;
         }
 
@@ -21,22 +23,55 @@
         }
 
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            color: var(--text-color); 
-            background: #edf2f7; 
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; 
+            color: var(--text-main); 
+            background: var(--bg-body); 
             line-height: 1.6; 
-            padding: 20px 10px; 
+            padding: 30px 10px; 
         }
         
         .container { 
-            max-width: 1050px; 
+            max-width: 1100px; 
             margin: 0 auto; 
-            background: #fff; 
-            border-radius: 12px; 
+            background: var(--bg-card); 
+            border-radius: 16px; 
             overflow: hidden; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+            box-shadow: 0 15px 35px rgba(15, 41, 66, 0.1); 
             display: flex;
             flex-wrap: wrap;
+            position: relative;
+        }
+
+        /* Nút Chuyển Ngôn Ngữ */
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 4px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .lang-btn {
+            border: none;
+            background: transparent;
+            padding: 6px 14px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--primary-color);
+            color: #ffffff;
         }
         
         /* Cột trái - Sidebar */
@@ -44,34 +79,37 @@
             width: 320px;
             background: var(--primary-color); 
             color: #ffffff; 
-            padding: 25px 20px; 
+            padding: 35px 25px; 
             flex-shrink: 0;
+            border-right: 1px solid rgba(255,255,255,0.05);
         }
 
         .profile-img { 
-            width: 140px; 
-            height: 140px; 
+            width: 150px; 
+            height: 150px; 
             border-radius: 50%; 
-            border: 4px solid #fff; 
-            margin: 0 auto 15px; 
+            border: 3px solid var(--secondary-color); 
+            margin: 0 auto 20px; 
             display: block; 
             object-fit: cover; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25); 
         }
 
         .sidebar h2 { 
-            color: #f6ad55; 
-            font-size: 1rem; 
-            border-bottom: 2px solid #4a5568; 
-            padding-bottom: 5px; 
-            margin: 20px 0 10px; 
+            color: var(--secondary-color); 
+            font-size: 0.92rem; 
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3); 
+            padding-bottom: 6px; 
+            margin: 25px 0 12px; 
             text-transform: uppercase; 
-            letter-spacing: 0.5px; 
+            letter-spacing: 1px; 
+            font-weight: 700;
         }
 
         .contact-info p { 
-            font-size: 0.85rem; 
-            margin-bottom: 6px; 
+            font-size: 0.86rem; 
+            margin-bottom: 8px; 
+            color: #e2e8f0;
             word-break: break-all; 
         }
 
@@ -80,15 +118,16 @@
         }
 
         .skills-list li, .cert-list li { 
-            margin-bottom: 8px; 
-            font-size: 0.85rem; 
-            line-height: 1.4; 
+            margin-bottom: 10px; 
+            font-size: 0.86rem; 
+            line-height: 1.5; 
+            color: #e2e8f0;
         }
 
         .activity-box { 
-            margin-top: 10px; 
+            margin-top: 12px; 
             background: rgba(255,255,255,0.05); 
-            padding: 8px; 
+            padding: 10px; 
             border-radius: 8px; 
             border: 1px solid rgba(255,255,255,0.1); 
         }
@@ -97,8 +136,7 @@
             width: 100%; 
             border-radius: 6px; 
             display: block; 
-            border: 1px solid #a0aec0; 
-            margin: 6px 0; 
+            margin: 4px 0 8px; 
         }
 
         .activity-caption { 
@@ -111,20 +149,23 @@
         /* Cột phải - Main Content */
         .main-content { 
             flex: 1;
-            min-width: 300px;
-            padding: 25px 25px; 
-            background: #fff; 
+            min-width: 320px;
+            padding: 40px 35px; 
+            background: #ffffff; 
         }
 
         .header { 
-            border-bottom: 3px solid var(--accent-color); 
-            padding-bottom: 12px; 
-            margin-bottom: 20px; 
+            border-bottom: 2px solid var(--secondary-color); 
+            padding-bottom: 16px; 
+            margin-bottom: 25px; 
+            margin-top: 10px;
         }
 
         .header h1 { 
-            font-size: 1.8rem; 
+            font-size: 2.1rem; 
             color: var(--primary-color); 
+            letter-spacing: 0.5px;
+            font-weight: 800;
         }
 
         .header h3 { 
@@ -132,21 +173,25 @@
             font-weight: 600; 
             font-size: 0.95rem; 
             margin-top: 4px; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         } 
         
         /* Accordion */
         .accordion-item { 
             border: 1px solid var(--border-color); 
-            border-radius: 8px; 
-            margin-bottom: 15px; 
+            border-radius: 10px; 
+            margin-bottom: 16px; 
             overflow: hidden; 
             background: #fff; 
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
         }
 
         .accordion-header { 
-            background: var(--bg-light); 
-            padding: 12px 16px; 
-            font-size: 0.98rem; 
+            background: #f8fafc; 
+            padding: 14px 20px; 
+            font-size: 0.95rem; 
             font-weight: 700; 
             color: var(--primary-color); 
             cursor: pointer; 
@@ -154,6 +199,7 @@
             justify-content: space-between; 
             align-items: center; 
             user-select: none; 
+            letter-spacing: 0.3px;
         }
 
         .accordion-header:hover { 
@@ -161,15 +207,15 @@
         }
 
         .accordion-header .icon { 
-            font-size: 0.85rem; 
+            font-size: 0.8rem; 
             transition: transform 0.3s ease; 
-            color: var(--accent-color); 
+            color: var(--secondary-color); 
         }
 
         .accordion-body { 
             display: block; 
-            padding: 15px 16px; 
-            border-top: 1px solid #edf2f7; 
+            padding: 20px; 
+            border-top: 1px solid var(--border-color); 
         }
 
         .accordion-item.collapsed .accordion-body { 
@@ -183,62 +229,69 @@
         .objective { 
             font-style: italic; 
             color: #4a5568; 
-            line-height: 1.6; 
-            font-size: 0.9rem; 
+            line-height: 1.7; 
+            font-size: 0.92rem; 
         }
 
         .timeline-item { 
-            margin-bottom: 15px; 
-            border-left: 2px solid var(--accent-color); 
-            padding-left: 12px; 
+            margin-bottom: 20px; 
+            border-left: 2px solid var(--secondary-color); 
+            padding-left: 15px; 
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
         }
 
         .timeline-item .date { 
-            font-weight: bold; 
+            font-weight: 700; 
             color: var(--accent-color); 
             font-size: 0.82rem; 
         }
 
         .timeline-item h4 { 
-            font-size: 0.95rem; 
+            font-size: 1rem; 
             color: var(--primary-color); 
+            margin-top: 2px;
         }
 
         .timeline-item .company { 
             font-weight: 600; 
             color: #4a5568; 
-            margin-bottom: 4px; 
+            margin-bottom: 6px; 
             font-size: 0.88rem; 
         }
 
         .timeline-item ul { 
-            padding-left: 16px; 
-            font-size: 0.85rem; 
+            padding-left: 18px; 
+            font-size: 0.88rem; 
+            color: #4a5568;
         }
 
-        /* Bố cục tài liệu minh chứng dạng lưới ngang logic */
+        .timeline-item ul li {
+            margin-bottom: 4px;
+        }
+
         .doc-container { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
             gap: 15px; 
             margin-top: 15px; 
-            align-items: start;
         }
 
         .doc-card {
-            background: var(--bg-light);
+            background: #f8fafc;
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 8px;
+            padding: 10px;
             text-align: center;
         }
 
         .doc-img { 
             width: 100%; 
             height: auto;
-            max-height: 280px;
+            max-height: 260px;
             border-radius: 6px; 
-            border: 1px solid #cbd5e0; 
             display: block; 
             object-fit: contain; 
             background: #fff;
@@ -246,42 +299,44 @@
         }
 
         .doc-img:hover {
-            transform: scale(1.02);
+            transform: scale(1.03);
         }
 
         .doc-title {
             font-size: 0.78rem;
-            color: #4a5568;
-            margin-top: 6px;
+            color: #718096;
+            margin-top: 8px;
             font-weight: 600;
         }
 
         .expertise-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
-            gap: 10px; 
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); 
+            gap: 12px; 
         }
 
         .expertise-card { 
-            background: var(--bg-light); 
-            padding: 10px; 
-            border-radius: 6px; 
+            background: #f8fafc; 
+            padding: 14px; 
+            border-radius: 8px; 
             border-left: 3px solid var(--primary-color); 
         }
 
         .expertise-card h4 { 
             color: var(--primary-color); 
             margin-bottom: 4px; 
-            font-size: 0.9rem; 
+            font-size: 0.92rem; 
         }
 
         .expertise-card p { 
-            font-size: 0.82rem; 
+            font-size: 0.83rem; 
+            color: #4a5568;
         }
 
         @media (max-width: 768px) {
             .sidebar { width: 100%; }
-            .main-content { padding: 15px; }
+            .main-content { padding: 25px 20px; }
+            .lang-switch { top: 15px; right: 15px; }
             .doc-container { grid-template-columns: 1fr; }
         }
     </style>
@@ -289,48 +344,53 @@
 <body>
 
 <div class="container">
+    <!-- NÚT ĐỔI NGÔN NGỮ -->
+    <div class="lang-switch">
+        <button class="lang-btn active" id="btn-vi" onclick="setLanguage('vi')">VIE</button>
+        <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">ENG</button>
+    </div>
+
     <!-- CỘT TRÁI -->
     <div class="sidebar">
         <img src="2.jpg" alt="Trần Thanh Sơn" class="profile-img">
         
-        <h2>THÔNG TIN LIÊN HỆ</h2>
+        <h2 data-vi="THÔNG TIN LIÊN HỆ" data-en="CONTACT INFORMATION">THÔNG TIN LIÊN HỆ</h2>
         <div class="contact-info">
-            <p><strong>Ngày sinh:</strong> 06/11/1966</p>
-            <p><strong>Điện thoại:</strong> 0909 000 383</p>
+            <p><strong data-vi="Ngày sinh:" data-en="DOB:">Ngày sinh:</strong> 06/11/1966</p>
+            <p><strong data-vi="Điện thoại:" data-en="Phone:">Điện thoại:</strong> 0909 000 383</p>
             <p><strong>Email:</strong> Thanhsontran611@gmail.com</p>
-            <p><strong>Địa chỉ:</strong> K58/6 Cô Bắc, Q. Hải Châu, TP. Đà Nẵng</p>
+            <p><strong data-vi="Địa chỉ:" data-en="Address:">Địa chỉ:</strong> K58/6 Cô Bắc, Q. Hải Châu, TP. Đà Nẵng</p>
         </div>
 
-        <h2>KỸ NĂNG QUẢN LÝ</h2>
+        <h2 data-vi="KỸ NĂNG QUẢN LÝ" data-en="MANAGEMENT SKILLS">KỸ NĂNG QUẢN LÝ</h2>
         <ul class="skills-list">
-            <li>• Tổ chức tiệc lớn (Buffet, Tiệc cưới, Catering, Sinh nhật)</li>
-            <li>• Giám sát VSTP (HACCP/VTOS)</li>
-            <li>• Quản lý & bảo trì thiết bị bếp</li>
-            <li>• Tối ưu hóa Food Cost</li>
-            <li>• Đào tạo nhân sự bếp chuyên nghiệp</li>
+            <li data-vi="• Tổ chức tiệc lớn (Buffet, Tiệc cưới, Catering)" data-en="• Banquet & Event Catering (Buffet, Wedding, Banquets)">• Tổ chức tiệc lớn (Buffet, Tiệc cưới, Catering)</li>
+            <li data-vi="• Giám sát VSTP (HACCP/VTOS)" data-en="• Food Safety & Hygiene (HACCP/VTOS)">• Giám sát VSTP (HACCP/VTOS)</li>
+            <li data-vi="• Quản lý & bảo trì thiết bị bếp" data-en="• Kitchen Equipment Operation & Maintenance">• Quản lý & bảo trì thiết bị bếp</li>
+            <li data-vi="• Tối ưu hóa Food Cost" data-en="• Food Cost Control & Optimization">• Tối ưu hóa Food Cost</li>
+            <li data-vi="• Đào tạo nhân sự bếp chuyên nghiệp" data-en="• Culinary Staff Training & Development">• Đào tạo nhân sự bếp chuyên nghiệp</li>
         </ul>
 
-        <h2>HÌNH ẢNH HOẠT ĐỘNG</h2>
+        <h2 data-vi="HÌNH ẢNH HOẠT ĐỘNG" data-en="FEATURED ACTIVITY">HÌNH ẢNH HOẠT ĐỘNG</h2>
         <div class="activity-box">
-            <img src="1.jpg" alt="Trình bày tác phẩm Ẩm thực Tiệc Rồng Phụng" class="sidebar-img">
-            <p class="activity-caption">Tác phẩm Ẩm thực Tiệc Rồng Phụng</p>
+            <img src="1.jpg" alt="Tác phẩm Ẩm thực Tiệc Rồng Phụng" class="sidebar-img">
+            <p class="activity-caption" data-vi="Tác phẩm Ẩm thực Tiệc Rồng Phụng" data-en="Dragon & Phoenix Culinary Sculpture">Tác phẩm Ẩm thực Tiệc Rồng Phụng</p>
         </div>
 
-        <h2>TRÌNH ĐỘ & BẰNG CẤP</h2>
+        <h2 data-vi="TRÌNH ĐỘ & BẰNG CẤP" data-en="EDUCATION & CERTS">TRÌNH ĐỘ & BẰNG CẤP</h2>
         <ul class="cert-list">
-            <li><strong>2018:</strong> Bằng chứng nhận phục vụ sự kiện Ngoại giao tại Bangladesh</li>
-            <li><strong>2004-2007:</strong> Cử nhân Kinh tế - Đại học</li>
-            <li><strong>2015:</strong> CĐ Sư phạm Nghề (Bếp)</li>
-            <li><strong>2015:</strong> Chứng nhận Chuẩn VTOS</li>
-            <li><strong>2014:</strong> Giấy chứng nhận Thi Nấu ăn</li>
-            <li><strong>2000:</strong> Chứng nhận Chế biến TP (Sở Y tế)</li>
-            <li><strong>1985-1988:</strong> Sơ cấp Nghề Ẩm thực (KS Non Nước)</li>
+            <li data-vi="<strong>2018:</strong> Bằng chứng nhận Phục vụ Sự kiện Ngoại giao" data-en="<strong>2018:</strong> Certificate of Diplomatic Event Service"><strong>2018:</strong> Bằng chứng nhận Phục vụ Sự kiện Ngoại giao</li>
+            <li data-vi="<strong>2004-2007:</strong> Cử nhân Kinh tế" data-en="<strong>2004-2007:</strong> Bachelor of Economics"><strong>2004-2007:</strong> Cử nhân Kinh tế</li>
+            <li data-vi="<strong>2015:</strong> CĐ Sư phạm Nghề (Bếp)" data-en="<strong>2015:</strong> Vocational Pedagogy Diploma (Culinary)"><strong>2015:</strong> CĐ Sư phạm Nghề (Bếp)</li>
+            <li data-vi="<strong>2015:</strong> Chứng nhận Chuẩn VTOS" data-en="<strong>2015:</strong> VTOS Standard Certificate"><strong>2015:</strong> Chứng nhận Chuẩn VTOS</li>
+            <li data-vi="<strong>2000:</strong> Certification Chế biến TP (Sở Y tế)" data-en="<strong>2000:</strong> Food Processing Cert (Health Dept)"><strong>2000:</strong> Certification Chế biến TP (Sở Y tế)</li>
+            <li data-vi="<strong>1985-1988:</strong> Sơ cấp Nghề Ẩm thực" data-en="<strong>1985-1988:</strong> Culinary Apprenticeship (Non Nuoc Hotel)"><strong>1985-1988:</strong> Sơ cấp Nghề Ẩm thực</li>
         </ul>
 
-        <h2>NGOẠI NGỮ & TIN HỌC</h2>
+        <h2 data-vi="NGOẠI NGỮ & TIN HỌC" data-en="LANGUAGES & IT">NGOẠI NGỮ & TIN HỌC</h2>
         <ul class="skills-list">
-            <li>• <strong>Tiếng Anh:</strong> Giao tiếp & Chuyên ngành Bếp</li>
-            <li>• <strong>Tin học:</strong> Word, Excel (Tính Food Cost)</li>
+            <li data-vi="• <strong>Tiếng Anh:</strong> Giao tiếp & Chuyên ngành Bếp" data-en="• <strong>English:</strong> Professional Culinary English">• <strong>Tiếng Anh:</strong> Giao tiếp & Chuyên ngành Bếp</li>
+            <li data-vi="• <strong>Tin học:</strong> Word, Excel (Food Cost)" data-en="• <strong>IT Skills:</strong> MS Word, Excel (Food Costing)">• <strong>Tin học:</strong> Word, Excel (Food Cost)</li>
         </ul>
     </div>
 
@@ -338,17 +398,17 @@
     <div class="main-content">
         <div class="header">
             <h1>TRẦN THANH SƠN</h1>
-            <h3>BẾP TRƯỞNG CAO CẤP / CHUYÊN GIA ĐÀO TẠO ẨM THỰC</h3>
+            <h3 data-vi="BẾP TRƯỞNG CAO CẤP / CHUYÊN GIA ĐÀO TẠO ẨM THỰC" data-en="EXECUTIVE CHEF / CULINARY INSTRUCTOR">BẾP TRƯỞNG CAO CẤP / CHUYÊN GIA ĐÀO TẠO ẨM THỰC</h3>
         </div>
 
         <!-- Mục 1 -->
         <div class="accordion-item">
             <div class="accordion-header">
-                MỤC TIÊU NGHỀ NGHIỆP
+                <span data-vi="MỤC TIÊU NGHỀ NGHIỆP" data-en="CAREER OBJECTIVE">MỤC TIÊU NGHỀ NGHIỆP</span>
                 <span class="icon">▼</span>
             </div>
             <div class="accordion-body">
-                <p class="objective">
+                <p class="objective" data-vi="Chuyên gia Ẩm thực với hơn 35 năm kinh nghiệm điều hành nhà bếp và giảng dạy tại các khách sạn, resort lớn. Sở trường am hiểu đa dạng các nền ẩm thực Á - Âu. Mong muốn cống hiến kinh nghiệm quản lý, kiểm soát chất lượng thực phẩm và đào tạo thế hệ nhân sự bếp chuyên nghiệp cho hệ thống Khách sạn - Nhà hàng cao cấp." data-en="Seasoned Culinary Expert with over 35 years of experience in kitchen operations and instruction at luxury hotels and resorts. Highly proficient in Asian and European cuisines. Seeking to leverage extensive managerial expertise, food quality control, and staff training capabilities to elevate high-end hospitality establishments.">
                     Chuyên gia Ẩm thực với hơn 35 năm kinh nghiệm điều hành nhà bếp và giảng dạy tại các khách sạn, resort lớn. Sở trường am hiểu đa dạng các nền ẩm thực Á - Âu. Mong muốn cống hiến kinh nghiệm quản lý, kiểm soát chất lượng thực phẩm và đào tạo thế hệ nhân sự bếp chuyên nghiệp cho hệ thống Khách sạn - Nhà hàng cao cấp.
                 </p>
             </div>
@@ -357,28 +417,27 @@
         <!-- Mục 2 -->
         <div class="accordion-item">
             <div class="accordion-header">
-                HOẠT ĐỘNG NGOẠI GIAO ĐẶC BIỆT (2018)
+                <span data-vi="HOẠT ĐỘNG NGOẠI GIAO ĐẶC BIỆT (2018)" data-en="STATE DIPLOMATIC SERVICE (2018)">HOẠT ĐỘNG NGOẠI GIAO ĐẶC BIỆT (2018)</span>
                 <span class="icon">▼</span>
             </div>
             <div class="accordion-body">
                 <div class="timeline-item">
                     <span class="date">03/2018</span>
-                    <h4>Đầu Bếp Chính Phục Vụ Sự Kiện Ngoại Giao Cấp Nhà Nước</h4>
-                    <div class="company">Đại sứ quán Việt Nam tại Bangladesh (Thủ đô Dhaka)</div>
+                    <h4 data-vi="Đầu Bếp Chính Phục Vụ Sự Kiện Ngoại Giao Cấp Nhà Nước" data-en="Head Chef for State Diplomatic Mission">Đầu Bếp Chính Phục Vụ Sự Kiện Ngoại Giao Cấp Nhà Nước</h4>
+                    <div class="company" data-vi="Đại sứ quán Việt Nam tại Bangladesh (Thủ đô Dhaka)" data-en="Embassy of Vietnam in Bangladesh (Dhaka)">Đại sứ quán Việt Nam tại Bangladesh (Thủ đô Dhaka)</div>
                     <ul>
-                        <li>Được Đại sứ quán Việt Nam cử chọn làm Đầu bếp chính phục vụ Tiệc đặc biệt và Quảng diễn ẩm thực Buffet trong chuyến thăm cấp Nhà nước của Chủ tịch nước Trần Đại Quang tới Bangladesh từ ngày 02 - 09/03/2018.</li>
-                        <li>Đảm nhận vai trò giới thiệu văn hóa ẩm thực Việt Nam tới các quan chức, khách quý quốc tế tại khách sạn Pan Pacific Sonargaon, Dhaka.</li>
+                        <li data-vi="Được Đại sứ quán Việt Nam cử chọn làm Đầu bếp chính phục vụ Tiệc đặc biệt và Quảng diễn ẩm thực Buffet trong chuyến thăm cấp Nhà nước của Chủ tịch nước Trần Đại Quang tới Bangladesh (02 - 09/03/2018)." data-en="Appointed Head Chef by the Vietnamese Embassy to lead the State Banquet and Vietnamese Buffet Showcase during President Tran Dai Quang's State Visit to Bangladesh (Mar 2-9, 2018).">Được Đại sứ quán Việt Nam cử chọn làm Đầu bếp chính phục vụ Tiệc đặc biệt và Quảng diễn ẩm thực Buffet trong chuyến thăm cấp Nhà nước của Chủ tịch nước Trần Đại Quang tới Bangladesh (02 - 09/03/2018).</li>
+                        <li data-vi="Đảm nhận vai trò giới thiệu văn hóa ẩm thực Việt Nam tới các quan chức, khách quý quốc tế tại khách sạn Pan Pacific Sonargaon, Dhaka." data-en="Promoted Vietnamese culinary culture to international dignitaries at Pan Pacific Sonargaon Hotel, Dhaka.">Đảm nhận vai trò giới thiệu văn hóa ẩm thực Việt Nam tới các quan chức, khách quý quốc tế tại khách sạn Pan Pacific Sonargaon, Dhaka.</li>
                     </ul>
                     
-                    <!-- Bố cục ảnh minh chứng nằm ngang song song -->
                     <div class="doc-container">
                         <div class="doc-card">
                             <img src="5.jpg" alt="Bằng chứng nhận Đại sứ quán" class="doc-img">
-                            <div class="doc-title">Bằng chứng nhận từ Đại sứ quán</div>
+                            <div class="doc-title" data-vi="Bằng chứng nhận từ Đại sứ quán" data-en="Embassy Letter of Appreciation">Bằng chứng nhận từ Đại sứ quán</div>
                         </div>
                         <div class="doc-card">
                             <img src="4.jpg" alt="Công điện Đại sứ quán Việt Nam" class="doc-img">
-                            <div class="doc-title">Công điện điều động Đại sứ quán</div>
+                            <div class="doc-title" data-vi="Công điện điều động chính thức" data-en="Official Diplomatic Dispatch">Công điện điều động chính thức</div>
                         </div>
                     </div>
                 </div>
@@ -388,22 +447,22 @@
         <!-- Mục 3 -->
         <div class="accordion-item">
             <div class="accordion-header">
-                CHUYÊN MÔN ẨM THỰC
+                <span data-vi="CHUYÊN MÔN ẨM THỰC" data-en="CULINARY EXPERTISE">CHUYÊN MÔN ẨM THỰC</span>
                 <span class="icon">▼</span>
             </div>
             <div class="accordion-body">
                 <div class="expertise-grid">
                     <div class="expertise-card">
-                        <h4>Bếp Âu & Ý</h4>
-                        <p>Chuyên sâu món Ý (đặc biệt là Pizza thủ công), kỹ thuật món Pháp cơ bản.</p>
+                        <h4 data-vi="Bếp Âu & Ý" data-en="Western & Italian">Bếp Âu & Ý</h4>
+                        <p data-vi="Chuyên sâu món Ý (Pizza thủ công), kỹ thuật món Pháp cơ bản." data-en="Mastery in Italian cuisine (Artisanal Pizza) & French culinary techniques.">Chuyên sâu món Ý (Pizza thủ công), kỹ thuật món Pháp cơ bản.</p>
                     </div>
                     <div class="expertise-card">
-                        <h4>Bếp Á & Nhật</h4>
-                        <p>Am hiểu ẩm thực Việt Nam, Trung Hoa và món Nhật thuần túy.</p>
+                        <h4 data-vi="Bếp Á & Nhật" data-en="Asian & Japanese">Bếp Á & Nhật</h4>
+                        <p data-vi="Am hiểu ẩm thực Việt Nam, Trung Hoa và món Nhật thuần túy." data-en="Deep knowledge of Authentic Vietnamese, Chinese, and Japanese dishes.">Am hiểu ẩm thực Việt Nam, Trung Hoa và món Nhật thuần túy.</p>
                     </div>
                     <div class="expertise-card">
-                        <h4>Bếp Bánh & Buffet</h4>
-                        <p>Thiết kế & chế biến đa dạng các loại bánh cho tiệc Buffet sáng.</p>
+                        <h4 data-vi="Bếp Bánh & Buffet" data-en="Pastry & Buffet">Bếp Bánh & Buffet</h4>
+                        <p data-vi="Thiết kế & chế biến đa dạng các loại bánh cho tiệc Buffet sáng." data-en="Menu design & production for international breakfast buffets and pastries.">Thiết kế & chế biến đa dạng các loại bánh cho tiệc Buffet sáng.</p>
                     </div>
                 </div>
             </div>
@@ -412,25 +471,25 @@
         <!-- Mục 4 -->
         <div class="accordion-item">
             <div class="accordion-header">
-                KINH NGHIỆM GIẢNG DẠY & ĐÀO TẠO
+                <span data-vi="KINH NGHIỆM GIẢNG DẠY & ĐÀO TẠO" data-en="TEACHING & TRAINING EXPERIENCE">KINH NGHIỆM GIẢNG DẠY & ĐÀO TẠO</span>
                 <span class="icon">▼</span>
             </div>
             <div class="accordion-body">
                 <div class="timeline-item">
-                    <span class="date">2015 – HIỆN TẠI</span>
-                    <h4>Giảng viên Kỹ thuật Chế biến Món ăn</h4>
-                    <div class="company">Trường Đào Tạo Nghề Bếp NetSpace & Hướng Nghiệp Á Âu</div>
+                    <span class="date">2015 – PRESENT</span>
+                    <h4 data-vi="Giảng viên Kỹ thuật Chế biến Món ăn" data-en="Senior Culinary Instructor">Giảng viên Kỹ thuật Chế biến Món ăn</h4>
+                    <div class="company" data-vi="Trường NetSpace & Hướng Nghiệp Á Âu" data-en="NetSpace & Huong Nghiep A Au Vocational Schools">Trường NetSpace & Hướng Nghiệp Á Âu</div>
                     <ul>
-                        <li>Trực tiếp giảng dạy kỹ thuật chế biến món ăn Á - Âu và quản lý bếp chuyên nghiệp.</li>
-                        <li>Đào tạo, hướng dẫn thực hành và định hướng nghề nghiệp cho hàng trăm học viên.</li>
+                        <li data-vi="Trực tiếp giảng dạy kỹ thuật chế biến món ăn Á - Âu và quản lý bếp chuyên nghiệp." data-en="Instructor for Asian/Western culinary arts and kitchen management modules.">Trực tiếp giảng dạy kỹ thuật chế biến món ăn Á - Âu và quản lý bếp chuyên nghiệp.</li>
+                        <li data-vi="Đào tạo, hướng dẫn thực hành và định hướng nghề nghiệp cho hàng trăm học viên." data-en="Mentored and provided career guidance to hundreds of professional culinary students.">Đào tạo, hướng dẫn thực hành và định hướng nghề nghiệp cho hàng trăm học viên.</li>
                     </ul>
                 </div>
                 <div class="timeline-item">
-                    <span class="date">2015 – HIỆN TẠI</span>
-                    <h4>Chuyên gia Đào tạo Nghề Du lịch Bếp</h4>
-                    <div class="company">Các Tổ chức Phi Chính phủ (NGOs) tại Quảng Nam & Đà Nẵng</div>
+                    <span class="date">2015 – PRESENT</span>
+                    <h4 data-vi="Chuyên gia Đào tạo Nghề Du lịch Bếp" data-en="Community Tourism Culinary Specialist">Chuyên gia Đào tạo Nghề Du lịch Bếp</h4>
+                    <div class="company" data-vi="Các Tổ chức Phi Chính phủ (NGOs) tại Quảng Nam & Đà Nẵng" data-en="NGO Community Development Projects (Quang Nam & Da Nang)">Các Tổ chức Phi Chính phủ (NGOs) tại Quảng Nam & Đà Nẵng</div>
                     <ul>
-                        <li>Tập huấn, truyền nghề bếp du lịch cộng đồng và hỗ trợ sinh kế bền vững cho lao động địa phương.</li>
+                        <li data-vi="Tập huấn truyền nghề bếp du lịch cộng đồng, hỗ trợ sinh kế bền vững cho lao động địa phương." data-en="Conducted vocational culinary workshops to empower local communities and promote sustainable livelihoods.">Tập huấn truyền nghề bếp du lịch cộng đồng, hỗ trợ sinh kế bền vững cho lao động địa phương.</li>
                     </ul>
                 </div>
             </div>
@@ -439,60 +498,54 @@
         <!-- Mục 5 -->
         <div class="accordion-item">
             <div class="accordion-header">
-                KINH NGHIỆM ĐIỀU HÀNH BẾP
+                <span data-vi="KINH NGHIỆM ĐIỀU HÀNH BẾP" data-en="WORK EXPERIENCE">KINH NGHIỆM ĐIỀU HÀNH BẾP</span>
                 <span class="icon">▼</span>
             </div>
             <div class="accordion-body">
                 <div class="timeline-item">
-                    <span class="date">2015 – HIỆN TẠI</span>
-                    <h4>Bếp trưởng (Executive Chef)</h4>
-                    <div class="company">Khách sạn Grand Sea Đà Nẵng</div>
+                    <span class="date">2015 – PRESENT</span>
+                    <h4 data-vi="Bếp trưởng (Executive Chef)" data-en="Executive Chef">Bếp trưởng (Executive Chef)</h4>
+                    <div class="company" data-vi="Khách sạn Grand Sea Đà Nẵng" data-en="Grand Sea Hotel Da Nang">Khách sạn Grand Sea Đà Nẵng</div>
                     <ul>
-                        <li>Quản lý toàn bộ hoạt động vận hành nhà bếp, điều hành đội ngũ nhân sự.</li>
-                        <li>Xây dựng thực đơn Buffet sáng, thực đơn A la carte và tiệc sự kiện.</li>
-                        <li>Đảm bảo tiêu chuẩn Vệ sinh An toàn Thực phẩm và kiểm soát Food cost.</li>
+                        <li data-vi="Quản lý toàn bộ hoạt động vận hành nhà bếp, điều hành đội ngũ nhân sự." data-en="Overlook full kitchen operations, leadership, and staff management.">Quản lý toàn bộ hoạt động vận hành nhà bếp, điều hành đội ngũ nhân sự.</li>
+                        <li data-vi="Xây dựng thực đơn Buffet sáng, thực đơn A la carte và tiệc sự kiện." data-en="Develop International Breakfast Buffet, A la carte, and Event Menus.">Xây dựng thực đơn Buffet sáng, thực đơn A la carte và tiệc sự kiện.</li>
+                        <li data-vi="Đảm bảo tiêu chuẩn Vệ sinh An toàn Thực phẩm và kiểm soát Food cost." data-en="Enforce strict HACCP food safety standards and food cost efficiency.">Đảm bảo tiêu chuẩn Vệ sinh An toàn Thực phẩm và kiểm soát Food cost.</li>
                     </ul>
                 </div>
                 <div class="timeline-item">
                     <span class="date">2014 – 2015</span>
-                    <h4>Bếp trưởng</h4>
-                    <div class="company">Khách sạn Sea Phoenix Đà Nẵng</div>
-                    <ul>
-                        <li>Chịu trách nhiệm thiết lập quy trình vận hành bếp mới và lên thực đơn nhà hàng.</li>
-                    </ul>
+                    <h4 data-vi="Bếp trưởng" data-en="Executive Chef">Bếp trưởng</h4>
+                    <div class="company" data-vi="Khách sạn Sea Phoenix Đà Nẵng" data-en="Sea Phoenix Hotel Da Nang">Khách sạn Sea Phoenix Đà Nẵng</div>
                 </div>
                 <div class="timeline-item">
                     <span class="date">2007 – 2014</span>
-                    <h4>Bếp trưởng</h4>
-                    <div class="company">Khách sạn Vạn Lợi (Hội An)</div>
-                    <ul>
-                        <li>Điều hành bếp phục vụ khách du lịch quốc tế, tổ chức tiệc lớn và tiệc ngoài trời.</li>
-                    </ul>
+                    <h4 data-vi="Bếp trưởng" data-en="Head Chef">Bếp trưởng</h4>
+                    <div class="company" data-vi="Khách sạn Vạn Lợi (Hội An)" data-en="Van Loi Hotel (Hoi An)">Khách sạn Vạn Lợi (Hội An)</div>
                 </div>
                 <div class="timeline-item">
                     <span class="date">2002 – 2004</span>
-                    <h4>Bếp trưởng</h4>
-                    <div class="company">Đông An Beach Hotel (Hội An)</div>
+                    <h4 data-vi="Bếp trưởng" data-en="Head Chef">Bếp trưởng</h4>
+                    <div class="company" data-vi="Đông An Beach Hotel (Hội An)" data-en="Dong An Beach Hotel (Hoi An)">Đông An Beach Hotel (Hội An)</div>
                 </div>
                 <div class="timeline-item">
                     <span class="date">2000 – 2002</span>
-                    <h4>Bếp phó (Sous Chef)</h4>
-                    <div class="company">Nhà hàng Brother Hội An (Công ty TM & DL Hoài Phố)</div>
+                    <h4 data-vi="Bếp phó (Sous Chef)" data-en="Sous Chef">Bếp phó (Sous Chef)</h4>
+                    <div class="company" data-vi="Nhà hàng Brother Hội An" data-en="Brother's Cafe Hoi An">Nhà hàng Brother Hội An</div>
                 </div>
                 <div class="timeline-item">
                     <span class="date">1998 – 2000</span>
-                    <h4>Bếp trưởng</h4>
-                    <div class="company">Khách sạn Royal (17 Quang Trung, Đà Nẵng)</div>
+                    <h4 data-vi="Bếp trưởng" data-en="Head Chef">Bếp trưởng</h4>
+                    <div class="company" data-vi="Khách sạn Royal (Đà Nẵng)" data-en="Royal Hotel (Da Nang)">Khách sạn Royal (Đà Nẵng)</div>
                 </div>
                 <div class="timeline-item">
                     <span class="date">1994 – 1998</span>
-                    <h4>Bếp phó - Chuyên món Ý</h4>
-                    <div class="company">Nhà hàng Ý (142 Võ Thị Sáu, Q.3, TP. Hồ Chí Minh)</div>
+                    <h4 data-vi="Bếp phó - Chuyên món Ý" data-en="Sous Chef - Italian Section">Bếp phó - Chuyên món Ý</h4>
+                    <div class="company" data-vi="Nhà hàng Ý (TP. Hồ Chí Minh)" data-en="Italian Restaurant (Ho Chi Minh City)">Nhà hàng Ý (TP. Hồ Chí Minh)</div>
                 </div>
                 <div class="timeline-item">
                     <span class="date">1988 – 1994</span>
-                    <h4>Nhân viên Bếp</h4>
-                    <div class="company">Khách sạn Modern (Công ty Dịch vụ Du lịch Đà Nẵng)</div>
+                    <h4 data-vi="Nhân viên Bếp" data-en="Commis Chef">Nhân viên Bếp</h4>
+                    <div class="company" data-vi="Khách sạn Modern (Đà Nẵng)" data-en="Modern Hotel (Da Nang)">Khách sạn Modern (Đà Nẵng)</div>
                 </div>
             </div>
         </div>
@@ -501,12 +554,27 @@
 </div>
 
 <script>
+    // Xử lý Accordion
     document.querySelectorAll('.accordion-header').forEach(header => {
         header.addEventListener('click', () => {
             const item = header.parentElement;
             item.classList.toggle('collapsed');
         });
     });
+
+    // Xử lý Đổi Ngôn Ngữ (VI - EN)
+    function setLanguage(lang) {
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        document.getElementById(`btn-${lang}`).classList.add('active');
+
+        document.querySelectorAll('[data-vi]').forEach(el => {
+            if (lang === 'en') {
+                el.innerHTML = el.getAttribute('data-en');
+            } else {
+                el.innerHTML = el.getAttribute('data-vi');
+            }
+        });
+    }
 </script>
 
 </body>
