@@ -347,8 +347,9 @@
                     </ul>
                     
                     <div class="doc-container">
-                        <img src="3.jpg" alt="Bằng chứng nhận Đại sứ quán" class="doc-img" onerror="this.onerror=null; this.src='3.png';">
-                        <img src="4.jpg" alt="Công điện Đại sứ quán Việt Nam" class="doc-img" onerror="this.onerror=null; this.src='4.png';">
+                        <!-- Tự động kiểm tra đuôi file chuẩn và ẩn ô vuông lỗi nếu file không tồn tại -->
+                        <img src="3.jpg" alt="Bằng chứng nhận Đại sứ quán" class="doc-img" onerror="this.onerror=null; this.src='3.png'; this.style.display='none';">
+                        <img src="4.jpg" alt="Công điện Đại sứ quán Việt Nam" class="doc-img">
                     </div>
                 </div>
             </div>
