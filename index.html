@@ -3,571 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Thái Thái Thuận - Java Backend & AI Developer</title>
+    <title>CV - TRẦN THANH SƠN | Bếp Trưởng Cao Cấp</title>
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-color: #1a1a1a;
-            --sidebar-bg: #fdf6f0;
-            --accent-color: #cc4e2e;
-            --sub-text: #7d6b65;
-            --border-color: #f3e6dc;
-            --hover-bg: #fbeee4;
+            --primary-color: #1a365d;
+            --accent-color: #c53030;
+            --text-color: #2d3748;
+            --bg-light: #f7fafc;
         }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: var(--text-color); background: #edf2f7; line-height: 1.6; }
+        .container { max-width: 1000px; margin: 20px auto; background: #fff; box-shadow: 0 0 20px rgba(0,0,0,0.1); display: grid; grid-template-columns: 1fr 2fr; }
+        
+        /* Sidebar Left */
+        .sidebar { background: var(--primary-color); color: white; padding: 30px 20px; }
+        .profile-img { width: 160px; height: 160px; border-radius: 50%; border: 4px solid #fff; margin: 0 auto 20px; display: block; object-fit: cover; }
+        .sidebar h2 { color: #f6ad55; font-size: 1.2rem; border-bottom: 2px solid #4a5568; padding-bottom: 5px; margin: 20px 0 10px; text-transform: uppercase; }
+        .contact-info p { font-size: 0.9rem; margin-bottom: 8px; word-break: break-all; }
+        .skills-list, .cert-list { list-style: none; }
+        .skills-list li, .cert-list li { margin-bottom: 10px; font-size: 0.9rem; }
+        
+        /* Main Content Right */
+        .main-content { padding: 40px 30px; }
+        .header { border-bottom: 3px solid var(--accent-color); padding-bottom: 15px; margin-bottom: 25px; }
+        .header h1 { font-size: 2.2rem; color: var(--primary-color); }
+        .header h3 { color: var(--accent-color); font-weight: 600; font-size: 1.1rem; margin-top: 5px; }
+        
+        .section-title { font-size: 1.3rem; color: var(--primary-color); text-transform: uppercase; margin: 25px 0 15px; border-left: 4px solid var(--accent-color); padding-left: 10px; }
+        .objective { font-style: italic; background: var(--bg-light); padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        
+        .timeline-item { margin-bottom: 20px; position: relative; border-left: 2px solid #e2e8f0; padding-left: 15px; }
+        .timeline-item .date { font-weight: bold; color: var(--accent-color); font-size: 0.85rem; }
+        .timeline-item h4 { font-size: 1.1rem; color: var(--primary-color); }
+        .timeline-item .company { font-weight: 600; color: #4a5568; margin-bottom: 5px; }
+        .timeline-item ul { padding-left: 18px; font-size: 0.95rem; }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            -webkit-font-smoothing: antialiased;
-        }
+        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .expertise-card { background: var(--bg-light); padding: 12px; border-radius: 5px; }
+        .expertise-card h4 { color: var(--primary-color); margin-bottom: 5px; }
 
-        .cv-container {
-            max-width: 1000px;
-            width: 100%;
-            display: flex;
-            min-height: 100vh;
-            background-color: var(--bg-color);
-        }
-
-        /* SIDEBAR (LEFT COLUMN) */
-        .sidebar {
-            width: 32%;
-            background-color: var(--sidebar-bg);
-            border-right: 1px solid var(--border-color);
-            padding: 50px 35px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .profile-section {
-            margin-bottom: 45px;
-            text-align: center;
-        }
-
-        .profile-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 2px solid var(--accent-color);
-            padding: 4px;
-            background-color: var(--bg-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .profile-avatar:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(204,78,46,0.15);
-        }
-
-        .profile-name {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--accent-color);
-            margin: 0 0 12px 0;
-            letter-spacing: -0.5px;
-            line-height: 1.15;
-        }
-
-        .profile-title {
-            font-size: 0.85rem;
-            color: var(--sub-text);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 700;
-        }
-
-        .sidebar-section {
-            margin-bottom: 40px;
-        }
-
-        .sidebar-title {
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--accent-color);
-            border-bottom: 1px solid var(--accent-color);
-            padding-bottom: 6px;
-            margin-bottom: 20px;
-        }
-
-        .contact-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            font-size: 0.9rem;
-        }
-
-        .contact-list li {
-            margin-bottom: 16px;
-            text-align: left;
-        }
-
-        .contact-list strong {
-            display: block;
-            color: var(--sub-text);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 2px;
-        }
-
-        .contact-list span, .contact-list a {
-            color: var(--text-color);
-            font-weight: 500;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .contact-list a {
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .contact-list a:hover {
-            color: var(--accent-color);
-            border-bottom-color: var(--accent-color);
-        }
-
-        .skill-group {
-            margin-bottom: 22px;
-            text-align: left;
-        }
-
-        .skill-group-title {
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 6px;
-            color: var(--accent-color);
-        }
-
-        .skill-group-desc {
-            font-size: 0.85rem;
-            color: var(--sub-text);
-            text-align: justify;
-        }
-
-        .hobby-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            font-size: 0.88rem;
-            color: var(--text-color);
-            font-weight: 500;
-            text-align: left;
-        }
-
-        .hobby-list li {
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* MAIN CONTENT (RIGHT COLUMN) */
-        .main-content {
-            width: 68%;
-            padding: 50px 50px;
-            box-sizing: border-box;
-        }
-
-        .main-section {
-            margin-bottom: 45px;
-        }
-
-        .main-section-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-            margin-bottom: 25px;
-            color: var(--accent-color);
-        }
-
-        .about-text {
-            font-size: 0.95rem;
-            text-align: justify;
-            margin: 0;
-            color: #333333;
-        }
-
-        /* ACCORDION STYLES */
-        .info-item {
-            margin-bottom: 20px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            background-color: var(--bg-color);
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .info-item:hover {
-            border-color: #dcbfa8;
-            box-shadow: 0 4px 12px rgba(204,78,46,0.03);
-        }
-
-        .info-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 20px;
-            cursor: pointer;
-            user-select: none;
-            transition: background-color 0.2s;
-        }
-
-        .info-header:hover {
-            background-color: var(--sidebar-bg);
-        }
-
-        .info-header-left {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--accent-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .info-header-left::before {
-            content: '→';
-            font-weight: 400;
-            color: var(--sub-text);
-            transition: transform 0.3s ease;
-        }
-
-        .info-item.active .info-header-left::before {
-            transform: rotate(90deg);
-            color: var(--accent-color);
-        }
-
-        .info-header-right {
-            font-size: 0.85rem;
-            color: var(--sub-text);
-            font-weight: 600;
-            white-space: nowrap;
-        }
-
-        .info-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .info-content-inner {
-            padding: 5px 20px 20px 40px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .info-sub {
-            font-size: 0.9rem;
-            font-style: italic;
-            color: var(--sub-text);
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-
-        .info-detail {
-            font-size: 0.9rem;
-            margin: 0;
-            padding-left: 18px;
-            text-align: justify;
-            color: #333333;
-        }
-
-        .info-detail li {
-            margin-bottom: 10px;
-        }
-
-        .info-detail li:last-child {
-            margin-bottom: 0;
-        }
-
-        .content-image {
-            width: 100%;
-            max-height: 250px;
-            object-fit: cover;
-            border-radius: 4px;
-            margin-top: 15px;
-            border: 1px solid var(--border-color);
-        }
-
-        .tech-stack {
-            margin-top: 16px;
-            padding-top: 12px;
-            border-top: 1px dashed var(--border-color);
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--accent-color);
-        }
-
-        /* RESPONSIVE DESIGN */
         @media (max-width: 768px) {
-            .cv-container {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-                padding: 40px 25px;
-            }
-            .main-content {
-                width: 100%;
-                padding: 40px 25px;
-            }
-            .info-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
-            }
-            .info-header-right {
-                margin-left: 24px;
-            }
-        }
-
-        /* PRINT MEDIA QUERY OPTIMIZATION */
-        @media print {
-            body {
-                background-color: #ffffff !important;
-                color: #000000 !important;
-            }
-            .cv-container {
-                box-shadow: none !important;
-                max-width: 100%;
-                width: 100%;
-            }
-            .info-item:hover {
-                box-shadow: none !important;
-                border-color: var(--border-color) !important;
-            }
-            .info-content {
-                max-height: none !important;
-                display: block !important;
-            }
-            .info-header-left::before {
-                display: none !important;
-            }
-            .info-content-inner {
-                padding-left: 20px !important;
-            }
-            .info-item {
-                page-break-inside: avoid;
-            }
-            .content-image {
-                display: none !important;
-            }
-            .profile-avatar {
-                border-color: #000000 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
+            .container { grid-template-columns: 1fr; }
+            .main-content { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="cv-container">
+<div class="container">
+    <!-- CỘT TRÁI - THÔNG TIN CÁ NHÂN & KỸ NĂNG -->
+    <div class="sidebar">
+        <!-- Thay link ảnh cá nhân tại src -->
+        <img src="avatar.jpg" alt="Trần Thanh Sơn" class="profile-img">
         
-        <!-- SIDEBAR (LEFT COLUMN) -->
-        <div class="sidebar">
-            <div class="profile-section">
-                <img src="avatar.png" alt="Thái Thái Thuận" class="profile-avatar">
-                <h1 class="profile-name">Thái Thái Thuận</h1>
-                <div class="profile-title">Java Backend Developer<br>& AI Engineer</div>
-            </div>
-
-            <div class="sidebar-section">
-                <div class="sidebar-title">Liên hệ</div>
-                <ul class="contact-list">
-                    <li>
-                        <strong>Email</strong>
-                        <a href="mailto:2005thuan@gmail.com">2005thuan@gmail.com</a>
-                    </li>
-                    <li>
-                        <strong>Điện thoại</strong>
-                        <span>0357291038</span>
-                    </li>
-                    <li>
-                        <strong>GitHub</strong>
-                        <a href="https://github.com/2005thuan-a11y" target="_blank">2005thuan-a11y</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="sidebar-section">
-                <div class="sidebar-title">Kỹ năng cốt lõi</div>
-                
-                <div class="skill-group">
-                    <div class="skill-group-title">Ngôn ngữ lập trình</div>
-                    <div class="skill-group-desc">Java (Đa luồng, Collections, Stream API), Python, SQL Script vững vàng.</div>
-                </div>
-
-                <div class="skill-group">
-                    <div class="skill-group-title">Framework Backend</div>
-                    <div class="skill-group-desc">Spring Boot (MVC, Security, Data JPA), Hibernate ORM, RESTful API architecture.</div>
-                </div>
-
-                <div class="skill-group">
-                    <div class="skill-group-title">Cơ sở dữ liệu</div>
-                    <div class="skill-group-desc">SQL Server, MySQL (Tối ưu truy vấn, Execution Plan, Indexing, Store Procedures).</div>
-                </div>
-
-                <div class="skill-group">
-                    <div class="skill-group-title">AI & Machine Learning</div>
-                    <div class="skill-group-desc">Pandas, NumPy, Scikit-learn. Tiền xử lý dữ liệu, Hyperparameter Tuning.</div>
-                </div>
-
-                <div class="skill-group">
-                    <div class="skill-group-title">Công cụ & Quy trình</div>
-                    <div class="skill-group-desc">Git/GitHub (Git Flow), Postman, Agile/Scrum. Đọc hiểu tài liệu tiếng Anh tốt.</div>
-                </div>
-            </div>
-
-            <div class="sidebar-section">
-                <div class="sidebar-title">Sở thích</div>
-                <ul class="hobby-list">
-                    <li>⚡ Đá banh (Rèn luyện thể lực, tư duy chiến thuật đồng đội)</li>
-                    <li>🎱 Chơi bida (Rèn luyện sự tập trung, tính toán góc độ hình học)</li>
-                </ul>
-            </div>
+        <h2>THÔNG TIN LIÊN HỆ</h2>
+        <div class="contact-info">
+            <p><strong>Ngày sinh:</strong> 06/11/1966</p>
+            <p><strong>Điện thoại:</strong> 0909 000 383</p>
+            <p><strong>Email:</strong> Thanhsontran611@gmail.com</p>
+            <p><strong>Địa chỉ:</strong> K58/6 Cô Bắc, Q. Hải Châu, TP. Đà Nẵng</p>
         </div>
 
-        <!-- MAIN CONTENT (RIGHT COLUMN) -->
-        <div class="main-content">
-            
-            <!-- GIỚI THIỆU -->
-            <div class="main-section">
-                <div class="main-section-title">Giới thiệu</div>
-                <p class="about-text">
-                    Sinh viên chuyên ngành Kỹ thuật phần mềm tại Đại học FPT định hướng trở thành kỹ sư Backend chuyên sâu kết hợp năng lực ứng dụng Trí tuệ nhân tạo (AI). Đam mê nghiên cứu và thiết kế các kiến trúc hệ thống dịch vụ có độ chịu tải cao, tối ưu hóa toàn diện hiệu suất xử lý dữ liệu lớn (Big Data SQL), cấu trúc hạ tầng linh hoạt và tích hợp liền mạch các mô hình học máy (Machine Learning/Deep Learning) vào sản phẩm thương mại thực tế. Khả năng tự học cao, tư duy hệ thống mạch lạc và luôn hướng tới việc giải quyết các bài toán tự động hóa thông minh nhằm tối ưu chi phí vận hành doanh nghiệp.
-                </p>
-            </div>
+        <h2>KỸ NĂNG QUẢN LÝ</h2>
+        <ul class="skills-list">
+            <li>• Tổ chức tiệc lớn (Buffet, Tiệc cưới, Catering, Sinh nhật)</li>
+            <li>• Giám sát VSTP (HACCP/VTOS)</li>
+            <li>• Quản lý & bảo trì thiết bị bếp</li>
+            <li>• Tối ưu hóa Food Cost</li>
+            <li>• Đào tạo nhân sự bếp chuyên nghiệp</li>
+        </ul>
 
-            <!-- MỤC TIÊU & ĐỊNH HƯỚNG -->
-            <div class="main-section">
-                <div class="main-section-title">Mục tiêu & Định hướng nghề nghiệp</div>
-                <div class="info-item">
-                    <div class="info-header">
-                        <div class="info-header-left">Mục tiêu ngắn hạn & Dài hạn</div>
-                        <div class="info-header-right">Định hướng tương lai</div>
-                    </div>
-                    <div class="info-content">
-                        <div class="info-content-inner">
-                            <ul class="info-detail">
-                                <li><strong>Mục tiêu ngắn hạn (1-2 năm tới):</strong> Tốt nghiệp chuyên ngành Kỹ thuật phần mềm tại Đại học FPT với kết quả xuất sắc. Tìm kiếm cơ hội làm việc thực tế tại các doanh nghiệp công nghệ với vị trí Java Backend Developer hoặc AI Integration Engineer. Tập trung làm chủ các bài toán thực tế về tối ưu hóa cơ sở dữ liệu quy mô lớn, kiến trúc hệ thống Microservices nâng cao và hoàn thiện kỹ năng triển khai kiểm thử tự động (Automation Testing/CI-CD).</li>
-                                <li><strong>Định hướng dài hạn (3-5 năm tới):</strong> Phát triển toàn diện năng lực chuyên môn để trở thành một <strong>Senior Backend Engineer / Technical Architect</strong>. Song song với đó, nghiên cứu sâu hơn về phân hệ MLOps để xây dựng và tự động hóa toàn bộ vòng đời triển khai các mô hình Trí tuệ nhân tạo (AI) lên môi trường Production chịu tải lớn. </li>
-                                <li><strong>Giá trị cốt lõi hướng đến:</strong> Không chỉ dừng lại ở việc viết code, định hướng bản thân trở thành một kỹ sư giải pháp, dùng tư duy logic mạnh mẽ của Backend kết hợp tính đột phá của AI để trực tiếp giải quyết các bài toán tối ưu quy trình kinh doanh và mang lại giá trị thực tế cao nhất cho doanh nghiệp.</li>
-                            </ul>
-                            <!-- Sử dụng ảnh trường FPT chuẩn xác -->
-                            <img src="truong-fpt-university.png" alt="Đại học FPT - Định hướng tương lai" class="content-image">
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <h2>TRÌNH ĐỘ & BẰNG CẤP</h2>
+        <ul class="cert-list">
+            <li><strong>2004-2007:</strong> Cử nhân Kinh tế - Đại học</li>
+            <li><strong>2015:</strong> CĐ Sư phạm Nghề (Bếp)</li>
+            <li><strong>2015:</strong> Chứng nhận Chuẩn VTOS</li>
+            <li><strong>2014:</strong> Giấy chứng nhận Thi Nấu ăn</li>
+            <li><strong>2000:</strong> Chứng nhận Chế biến TP (Sở Y tế)</li>
+            <li><strong>1985-1988:</strong> Sơ cấp Nghề Ẩm thực (KS Non Nước)</li>
+        </ul>
 
-            <!-- HỌC VẤN -->
-            <div class="main-section">
-                <div class="main-section-title">Học vấn</div>
-                
-                <div class="info-item">
-                    <div class="info-header">
-                        <div class="info-header-left">Đại học FPT</div>
-                        <div class="info-header-right">2023 - Hiện tại</div>
-                    </div>
-                    <div class="info-content">
-                        <div class="info-content-inner">
-                            <div class="info-sub">Chuyên ngành: Kỹ thuật phần mềm (Lộ trình chuẩn quốc tế)</div>
-                            <ul class="info-detail">
-                                <li><strong>Kiến thức cốt lõi:</strong> Hoàn thành xuất sắc các học phần nền tảng cốt lõi bao gồm Cấu trúc dữ liệu & Giải thuật (DSA), Hệ quản trị cơ sở dữ liệu quan hệ (RDBMS), Phân tích & Thiết kế hệ thống (SAD), Kiến trúc hướng dịch vụ (SOA) và Phát triển ứng dụng Web phân tầng.</li>
-                                <li><strong>Chuyên sâu Backend:</strong> Tự nghiên cứu và áp dụng mô hình thiết kế (Design Patterns: Singleton, Factory, Repository, Dependency Injection), vòng đời xử lý request của Spring Framework, cơ chế bất đồng bộ, quản lý ThreadPool và tối ưu hóa bộ nhớ đệm Cache.</li>
-                                <li><strong>Nghiên cứu Trí tuệ nhân tạo:</strong> Đào sâu các phương pháp Tiền xử lý dữ liệu (Data Preprocessing), Kỹ nghệ đặc trưng (Feature Engineering), Học máy có giám sát (Supervised Learning) và các giải pháp tích hợp Pipeline của mô hình AI vào kiến trúc Microservices thông qua cơ chế REST hoặc Message Queue.</li>
-                                <li><strong>Hoạt động học thuật:</strong> Tham gia tích cực các dự án thực hành giả lập doanh nghiệp tại trường với vai trò Trưởng nhóm kỹ thuật (Technical Lead), chịu trách nhiệm thiết kế lược đồ cơ sở dữ liệu (Database Schema), phân chia Module tính năng và tối ưu hóa Logic phía máy chủ.</li>
-                            </ul>
-                            <!-- Sử dụng ảnh trường FPT chuẩn xác -->
-                            <img src="truong-fpt-university.png" alt="Học tập tại Đại học FPT" class="content-image">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DỰ ÁN THỰC TẾ -->
-            <div class="main-section">
-                <div class="main-section-title">Dự án thực tế</div>
-                
-                <!-- Dự án 1 -->
-                <div class="info-item">
-                    <div class="info-header">
-                        <div class="info-header-left">Hệ Thống API Bán Hàng E-Commerce Enterprise</div>
-                        <div class="info-header-right">Dự án cá nhân</div>
-                    </div>
-                    <div class="info-content">
-                        <div class="info-content-inner">
-                            <div class="info-sub">Kiến trúc hệ thống Backend toàn diện, bảo mật và tối ưu hóa xử lý đồng thời</div>
-                            <ul class="info-detail">
-                                <li><strong>Thiết kế kiến trúc:</strong> Xây dựng hệ thống Backend phân tầng chuẩn RESTful API phục vụ luồng nghiệp vụ phức tạp của sàn TMĐT: Quản lý vòng đời sản phẩm đa thuộc tính, quy trình xử lý đơn hàng đa trạng thái, quản lý kho hàng và giỏ hàng thời gian thực.</li>
-                                <li><strong>Bảo mật & Phân quyền:</strong> Thiết kế phân hệ Identity Provider (IdP) sử dụng Spring Security cấu hình cơ chế Stateless Authentication qua JSON Web Token (JWT). Triển khai phân quyền theo vai trò (RBAC) chặt chẽ đến từng Endpoint kết hợp mã hóa bất đối xứng mật khẩu người dùng.</li>
-                                <li><strong>Tối ưu hóa Cơ sở dữ liệu:</strong> Thiết kế cơ sở dữ liệu SQL Server chuẩn hóa dạng 3NF. Trực tiếp giải quyết bài toán thắt nút cổ chai hiệu năng (Bottleneck) bằng cách cấu hình Index (Clustered/Non-Clustered) hợp lý, tối ưu các câu lệnh phức tạp chứa nhiều mệnh đề JOIN/Subquery, giảm thời gian phản hồi (Response Time) của các API thống kê báo cáo từ 4s xuống dưới 200ms trên tập dữ liệu hàng triệu bản ghi giả lập.</li>
-                                <li><strong>Quản trị giao dịch & Ràng buộc:</strong> Áp dụng cơ chế cô lập giao dịch (Transaction Isolation Levels) và xử lý lỗi (Global Exception Handling) đồng bộ nhằm đảm bảo tính toàn vẹn dữ liệu (ACID) tuyệt đối khi xảy ra tranh chấp tài nguyên hệ thống (Ví dụ: Trừ số lượng tồn kho khi nhiều user đặt hàng đồng thời).</li>
-                            </ul>
-                            <div class="tech-stack">Công nghệ: Java Core (17), Spring Boot, Spring Security, Hibernate/Spring Data JPA, SQL Server, JWT, Maven.</div>
-                            <!-- Gọi chính xác file api.png của bạn -->
-                            <img src="api.png" alt="Bảo vệ dự án E-Commerce Đại học FPT" class="content-image">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Dự án 2 -->
-                <div class="info-item">
-                    <div class="info-header">
-                        <div class="info-header-left">Mô Hình Phân Loại & Dự Đoán Dữ Liệu Thông Minh</div>
-                        <div class="info-header-right">Dự án nghiên cứu</div>
-                    </div>
-                    <div class="info-content">
-                        <div class="info-content-inner">
-                            <div class="info-sub">Pipeline khai phá dữ liệu, huấn luyện mô hình Machine Learning giải quyết bài toán dự báo</div>
-                            <ul class="info-detail">
-                                <li><strong>Xử lý dữ liệu thô:</strong> Xây dựng đường ống (Pipeline) thu thập và làm sạch tập dữ liệu lớn. Xử lý triệt để hiện tượng dữ liệu khuyết thiếu (Missing values), lọc bỏ nhiễu (Outliers), mã hóa biến phân loại (One-Hot Encoding, Label Encoding) và chuẩn hóa thang đo dữ liệu (Standardization/MinMax Scaling).</li>
-                                <li><strong>Kỹ nghệ đặc trưng:</strong> Áp dụng các kỹ thuật trích chọn đặc trưng quan trọng thông qua ma trận tương quan (Correlation Matrix) và phân tích tầm quan trọng của biến để giảm chiều dữ liệu, loại bỏ hiện tượng đa cộng tuyến, giúp mô hình tập trung vào các tín hiệu dữ liệu cốt lõi.</li>
-                                <li><strong>Huấn luyện & Thực nghiệm:</strong> Thử nghiệm song song nhiều thuật toán học máy từ cơ bản đến phức tạp như Logistic Regression, Random Forest, Support Vector Machine (SVM) và Gradient Boosting để đánh giá bài toán phân loại/dự đoán xu hướng hành vi người dùng.</li>
-                                <li><strong>Tối ưu hóa siêu tham số:</strong> Triển khai kỹ thuật GridSearchCV kết hợp K-Fold Cross Validation nhằm tinh chỉnh các siêu tham số (Hyperparameters) của mô hình, ngăn chặn hiện tượng quá khớp (Overfitting) hoặc dưới khớp (Underfitting). Nâng chỉ số Accuracy và F1-Score trên tập dữ liệu kiểm thử đạt mức tối ưu cao (>90%), sẵn sàng xuất bản cấu trúc mô hình dạng file đóng gói phục vụ tích hợp ứng dụng thực tế.</li>
-                            </ul>
-                            <div class="tech-stack">Công nghệ: Python, Jupyter Notebook, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Google Colab.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        <h2>NGOẠI NGỮ & TIN HỌC</h2>
+        <ul class="skills-list">
+            <li>• <strong>Tiếng Anh:</strong> Giao tiếp & Chuyên ngành Bếp</li>
+            <li>• <strong>Tin học:</strong> Word, Excel (Tính Food Cost)</li>
+        </ul>
     </div>
 
-    <script>
-        document.querySelectorAll('.info-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const item = header.parentElement;
-                const content = item.querySelector('.info-content');
-                
-                item.classList.toggle('active');
-                
-                if (item.classList.contains('active')) {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                } else {
-                    content.style.maxHeight = null;
-                }
-            });
-        });
-    </script>
+    <!-- CỘT PHẢI - NỘI DUNG CHÍNH -->
+    <div class="main-content">
+        <div class="header">
+            <h1>TRẦN THANH SƠN</h1>
+            <h3>BẾP TRƯỞNG CAO CẤP / CHUYÊN GIA ĐÀO TẠO ẨM THỰC</h3>
+        </div>
+
+        <div class="section-title">MỤC TIÊU NGHỀ NGHIỆP</div>
+        <p class="objective">
+            Chuyên gia Ẩm thực với hơn 35 năm kinh nghiệm điều hành nhà bếp và giảng dạy tại các khách sạn, resort lớn. Sở trường am hiểu đa dạng các nền ẩm thực Á - Âu. Mong muốn cống hiến kinh nghiệm quản lý, kiểm soát chất lượng thực phẩm và đào tạo thế hệ nhân sự bếp chuyên nghiệp cho hệ thống Khách sạn - Nhà hàng cao cấp.
+        </p>
+
+        <div class="section-title">CHUYÊN MÔN ẨM THỰC</div>
+        <div class="expertise-grid">
+            <div class="expertise-card">
+                <h4>Bếp Âu & Ý</h4>
+                <p>Chuyên sâu món Ý (đặc biệt là Pizza thủ công), kỹ thuật món Pháp cơ bản.</p>
+            </div>
+            <div class="expertise-card">
+                <h4>Bếp Á & Nhật</h4>
+                <p>Am hiểu ẩm thực Việt Nam, Trung Hoa và món Nhật thuần túy.</p>
+            </div>
+            <div class="expertise-card">
+                <h4>Bếp Bánh & Buffet</h4>
+                <p>Thiết kế & chế biến đa dạng các loại bánh cho tiệc Buffet sáng.</p>
+            </div>
+        </div>
+
+        <div class="section-title">KINH NGHIỆM GIẢNG DẠY & ĐÀO TẠO</div>
+        <div class="timeline-item">
+            <span class="date">2015 – HIỆN TẠI</span>
+            <h4>Giảng viên Kỹ thuật Chế biến Món ăn</h4>
+            <div class="company">Trường Đào Tạo Nghề Bếp NetSpace & Hướng Nghiệp Á Âu</div>
+            <ul>
+                <li>Trực tiếp giảng dạy kỹ thuật chế biến món ăn Á - Âu và quản lý bếp chuyên nghiệp.</li>
+                <li>Đào tạo, hướng dẫn thực hành và định hướng nghề nghiệp cho hàng trăm học viên.</li>
+            </ul>
+        </div>
+        <div class="timeline-item">
+            <span class="date">2015 – HIỆN TẠI</span>
+            <h4>Chuyên gia Đào tạo Nghề Du lịch Bếp</h4>
+            <div class="company">Các Tổ chức Phi Chính phủ (NGOs) tại Quảng Nam & Đà Nẵng</div>
+            <ul>
+                <li>Tập huấn, truyền nghề bếp du lịch cộng đồng và hỗ trợ sinh kế bền vững cho lao động địa phương.</li>
+            </ul>
+        </div>
+
+        <div class="section-title">KINH NGHIỆM ĐIỀU HÀNH BẾP</div>
+        <div class="timeline-item">
+            <span class="date">2015 – HIỆN TẠI</span>
+            <h4>Bếp trưởng (Executive Chef)</h4>
+            <div class="company">Khách sạn Grand Sea Đà Nẵng</div>
+            <ul>
+                <li>Quản lý toàn bộ hoạt động vận hành nhà bếp, điều hành đội ngũ nhân sự.</li>
+                <li>Xây dựng thực đơn Buffet sáng, thực đơn A la carte và tiệc sự kiện.</li>
+                <li>Đảm bảo tiêu chuẩn Vệ sinh An toàn Thực phẩm và kiểm soát Food cost.</li>
+            </ul>
+        </div>
+        <div class="timeline-item">
+            <span class="date">2014 – 2015</span>
+            <h4>Bếp trưởng</h4>
+            <div class="company">Khách sạn Sea Phoenix Đà Nẵng</div>
+            <ul>
+                <li>Chịu trách nhiệm thiết lập quy trình vận hành bếp mới và lên thực đơn nhà hàng.</li>
+            </ul>
+        </div>
+        <div class="timeline-item">
+            <span class="date">2007 – 2014</span>
+            <h4>Bếp trưởng</h4>
+            <div class="company">Khách sạn Vạn Lợi (Hội An)</div>
+            <ul>
+                <li>Điều hành bếp phục vụ khách du lịch quốc tế, tổ chức tiệc lớn và tiệc ngoài trời.</li>
+            </ul>
+        </div>
+        <div class="timeline-item">
+            <span class="date">2002 – 2004</span>
+            <h4>Bếp trưởng</h4>
+            <div class="company">Đông An Beach Hotel (Hội An)</div>
+        </div>
+        <div class="timeline-item">
+            <span class="date">2000 – 2002</span>
+            <h4>Bếp phó (Sous Chef)</h4>
+            <div class="company">Nhà hàng Brother Hội An (Công ty TM & DL Hoài Phố)</div>
+        </div>
+        <div class="timeline-item">
+            <span class="date">1998 – 2000</span>
+            <h4>Bếp trưởng</h4>
+            <div class="company">Khách sạn Royal (17 Quang Trung, Đà Nẵng)</div>
+        </div>
+        <div class="timeline-item">
+            <span class="date">1994 – 1998</span>
+            <h4>Bếp phó - Chuyên món Ý</h4>
+            <div class="company">Nhà hàng Ý (142 Võ Thị Sáu, Q.3, TP. Hồ Chí Minh)</div>
+        </div>
+        <div class="timeline-item">
+            <span class="date">1988 – 1994</span>
+            <h4>Nhân viên Bếp</h4>
+            <div class="company">Khách sạn Modern (Công ty Dịch vụ Du lịch Đà Nẵng)</div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
