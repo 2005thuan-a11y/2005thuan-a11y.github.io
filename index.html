@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - TRẦN THANH SƠN | Bếp Trưởng Cao Cấp</title>
+    <title>CV Điện Tử - TRẦN THANH SƠN | Bếp Trưởng Cao Cấp</title>
     <style>
         :root {
             --primary-color: #1a365d;
@@ -12,52 +12,62 @@
             --bg-light: #f7fafc;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: var(--text-color); background: #edf2f7; line-height: 1.6; }
-        .container { max-width: 1000px; margin: 20px auto; background: #fff; box-shadow: 0 0 20px rgba(0,0,0,0.1); display: grid; grid-template-columns: 1fr 2fr; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: var(--text-color); background: #e2e8f0; line-height: 1.6; padding: 10px; }
+        .container { max-width: 950px; margin: 10px auto; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: grid; grid-template-columns: 320px 1fr; }
         
         /* Sidebar Left */
         .sidebar { background: var(--primary-color); color: white; padding: 30px 20px; }
-        .profile-img { width: 160px; height: 160px; border-radius: 50%; border: 4px solid #fff; margin: 0 auto 20px; display: block; object-fit: cover; }
-        .sidebar h2 { color: #f6ad55; font-size: 1.2rem; border-bottom: 2px solid #4a5568; padding-bottom: 5px; margin: 20px 0 10px; text-transform: uppercase; }
+        .profile-img { width: 150px; height: 150px; border-radius: 50%; border: 4px solid #fff; margin: 0 auto 20px; display: block; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .sidebar h2 { color: #f6ad55; font-size: 1.1rem; border-bottom: 2px solid #4a5568; padding-bottom: 5px; margin: 25px 0 12px; text-transform: uppercase; letter-spacing: 0.5px; }
         .contact-info p { font-size: 0.9rem; margin-bottom: 8px; word-break: break-all; }
         .skills-list, .cert-list { list-style: none; }
-        .skills-list li, .cert-list li { margin-bottom: 10px; font-size: 0.9rem; }
+        .skills-list li, .cert-list li { margin-bottom: 8px; font-size: 0.88rem; line-height: 1.4; }
         
         /* Main Content Right */
-        .main-content { padding: 40px 30px; }
+        .main-content { padding: 30px 25px; background: #fff; }
         .header { border-bottom: 3px solid var(--accent-color); padding-bottom: 15px; margin-bottom: 25px; }
-        .header h1 { font-size: 2.2rem; color: var(--primary-color); }
-        .header h3 { color: var(--accent-color); font-weight: 600; font-size: 1.1rem; margin-top: 5px; }
+        .header h1 { font-size: 2rem; color: var(--primary-color); }
+        .header h3 { color: var(--accent-color); font-weight: 600; font-size: 1rem; margin-top: 5px; }
         
-        .section-title { font-size: 1.3rem; color: var(--primary-color); text-transform: uppercase; margin: 25px 0 15px; border-left: 4px solid var(--accent-color); padding-left: 10px; }
-        .objective { font-style: italic; background: var(--bg-light); padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        /* Interactive Accordion Items */
+        .accordion-item { border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 12px; overflow: hidden; transition: all 0.3s ease; }
+        .accordion-item.active { border-color: var(--primary-color); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
         
-        .timeline-item { margin-bottom: 20px; position: relative; border-left: 2px solid #e2e8f0; padding-left: 15px; }
+        .accordion-header { background: var(--bg-light); padding: 14px 18px; font-size: 1.05rem; font-weight: 700; color: var(--primary-color); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; transition: background 0.2s ease; }
+        .accordion-header:hover { background: #edf2f7; }
+        .accordion-header .icon { font-size: 1.2rem; transition: transform 0.3s ease; color: var(--accent-color); }
+        .accordion-item.active .accordion-header .icon { transform: rotate(180deg); }
+        
+        .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0, 1, 0, 1); padding: 0 18px; background: #fff; }
+        .accordion-item.active .accordion-body { max-height: 2000px; transition: max-height 0.5s ease-in-out; padding: 15px 18px; border-top: 1px solid #edf2f7; }
+
+        .objective { font-style: italic; color: #4a5568; line-height: 1.7; }
+        
+        .timeline-item { margin-bottom: 15px; border-left: 2px solid var(--accent-color); padding-left: 12px; }
         .timeline-item .date { font-weight: bold; color: var(--accent-color); font-size: 0.85rem; }
-        .timeline-item h4 { font-size: 1.1rem; color: var(--primary-color); }
-        .timeline-item .company { font-weight: 600; color: #4a5568; margin-bottom: 5px; }
-        .timeline-item ul { padding-left: 18px; font-size: 0.95rem; }
+        .timeline-item h4 { font-size: 1rem; color: var(--primary-color); }
+        .timeline-item .company { font-weight: 600; color: #4a5568; margin-bottom: 4px; font-size: 0.9rem; }
+        .timeline-item ul { padding-left: 18px; font-size: 0.9rem; }
 
-        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .expertise-card { background: var(--bg-light); padding: 12px; border-radius: 5px; }
-        .expertise-card h4 { color: var(--primary-color); margin-bottom: 5px; }
+        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+        .expertise-card { background: var(--bg-light); padding: 12px; border-radius: 6px; border-left: 3px solid var(--primary-color); }
+        .expertise-card h4 { color: var(--primary-color); margin-bottom: 4px; font-size: 0.95rem; }
+        .expertise-card p { font-size: 0.85rem; }
 
-        .activity-section { margin-top: 20px; }
-        .activity-img { width: 100%; max-width: 450px; border-radius: 8px; border: 1px solid #cbd5e0; margin-top: 10px; display: block; }
-        .activity-caption { font-size: 0.9rem; color: #718096; margin-top: 5px; font-style: italic; }
+        .activity-img { width: 100%; max-width: 450px; border-radius: 8px; border: 1px solid #cbd5e0; margin-top: 8px; display: block; }
+        .activity-caption { font-size: 0.85rem; color: #718096; margin-top: 4px; font-style: italic; }
 
         @media (max-width: 768px) {
             .container { grid-template-columns: 1fr; }
-            .main-content { padding: 20px; }
+            .main-content { padding: 20px 15px; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- CỘT TRÁI - THÔNG TIN CÁ NHÂN & KỸ NĂNG -->
+    <!-- CỘT TRÁI - THÔNG TIN CÁ NHÂN -->
     <div class="sidebar">
-        <!-- Ảnh đại diện 2.jpg -->
         <img src="2.jpg" alt="Trần Thanh Sơn" class="profile-img">
         
         <h2>THÔNG TIN LIÊN HỆ</h2>
@@ -94,114 +104,161 @@
         </ul>
     </div>
 
-    <!-- CỘT PHẢI - NỘI DUNG CHÍNH -->
+    <!-- CỘT PHẢI - NỘI DUNG TƯƠNG TÁC (ACCORDION) -->
     <div class="main-content">
         <div class="header">
             <h1>TRẦN THANH SƠN</h1>
             <h3>BẾP TRƯỞNG CAO CẤP / CHUYÊN GIA ĐÀO TẠO ẨM THỰC</h3>
         </div>
 
-        <div class="section-title">MỤC TIÊU NGHỀ NGHIỆP</div>
-        <p class="objective">
-            Chuyên gia Ẩm thực với hơn 35 năm kinh nghiệm điều hành nhà bếp và giảng dạy tại các khách sạn, resort lớn. Sở trường am hiểu đa dạng các nền ẩm thực Á - Âu. Mong muốn cống hiến kinh nghiệm quản lý, kiểm soát chất lượng thực phẩm và đào tạo thế hệ nhân sự bếp chuyên nghiệp cho hệ thống Khách sạn - Nhà hàng cao cấp.
-        </p>
-
-        <div class="section-title">CHUYÊN MÔN ẨM THỰC</div>
-        <div class="expertise-grid">
-            <div class="expertise-card">
-                <h4>Bếp Âu & Ý</h4>
-                <p>Chuyên sâu món Ý (đặc biệt là Pizza thủ công), kỹ thuật món Pháp cơ bản.</p>
+        <!-- Mục 1 -->
+        <div class="accordion-item active">
+            <div class="accordion-header">
+                MỤC TIÊU NGHỀ NGHIỆP
+                <span class="icon">▼</span>
             </div>
-            <div class="expertise-card">
-                <h4>Bếp Á & Nhật</h4>
-                <p>Am hiểu ẩm thực Việt Nam, Trung Hoa và món Nhật thuần túy.</p>
-            </div>
-            <div class="expertise-card">
-                <h4>Bếp Bánh & Buffet</h4>
-                <p>Thiết kế & chế biến đa dạng các loại bánh cho tiệc Buffet sáng.</p>
+            <div class="accordion-body">
+                <p class="objective">
+                    Chuyên gia Ẩm thực với hơn 35 năm kinh nghiệm điều hành nhà bếp và giảng dạy tại các khách sạn, resort lớn. Sở trường am hiểu đa dạng các nền ẩm thực Á - Âu. Mong muốn cống hiến kinh nghiệm quản lý, kiểm soát chất lượng thực phẩm và đào tạo thế hệ nhân sự bếp chuyên nghiệp cho hệ thống Khách sạn - Nhà hàng cao cấp.
+                </p>
             </div>
         </div>
 
-        <div class="section-title">HÌNH ẢNH HOẠT ĐỘNG</div>
-        <div class="activity-section">
-            <!-- Ảnh hoạt động 1.jpg -->
-            <img src="1.jpg" alt="Trình bày tác phẩm Ẩm thực Tiệc Rồng Phụng" class="activity-img">
-            <p class="activity-caption">Trình bày tác phẩm Ẩm thực Tiệc Rồng Phụng</p>
+        <!-- Mục 2 -->
+        <div class="accordion-item active">
+            <div class="accordion-header">
+                CHUYÊN MÔN ẨM THỰC
+                <span class="icon">▼</span>
+            </div>
+            <div class="accordion-body">
+                <div class="expertise-grid">
+                    <div class="expertise-card">
+                        <h4>Bếp Âu & Ý</h4>
+                        <p>Chuyên sâu món Ý (đặc biệt là Pizza thủ công), kỹ thuật món Pháp cơ bản.</p>
+                    </div>
+                    <div class="expertise-card">
+                        <h4>Bếp Á & Nhật</h4>
+                        <p>Am hiểu ẩm thực Việt Nam, Trung Hoa và món Nhật thuần túy.</p>
+                    </div>
+                    <div class="expertise-card">
+                        <h4>Bếp Bánh & Buffet</h4>
+                        <p>Thiết kế & chế biến đa dạng các loại bánh cho tiệc Buffet sáng.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="section-title">KINH NGHIỆM GIẢNG DẠY & ĐÀO TẠO</div>
-        <div class="timeline-item">
-            <span class="date">2015 – HIỆN TẠI</span>
-            <h4>Giảng viên Kỹ thuật Chế biến Món ăn</h4>
-            <div class="company">Trường Đào Tạo Nghề Bếp NetSpace & Hướng Nghiệp Á Âu</div>
-            <ul>
-                <li>Trực tiếp giảng dạy kỹ thuật chế biến món ăn Á - Âu và quản lý bếp chuyên nghiệp.</li>
-                <li>Đào tạo, hướng dẫn thực hành và định hướng nghề nghiệp cho hàng trăm học viên.</li>
-            </ul>
-        </div>
-        <div class="timeline-item">
-            <span class="date">2015 – HIỆN TẠI</span>
-            <h4>Chuyên gia Đào tạo Nghề Du lịch Bếp</h4>
-            <div class="company">Các Tổ chức Phi Chính phủ (NGOs) tại Quảng Nam & Đà Nẵng</div>
-            <ul>
-                <li>Tập huấn, truyền nghề bếp du lịch cộng đồng và hỗ trợ sinh kế bền vững cho lao động địa phương.</li>
-            </ul>
+        <!-- Mục 3 -->
+        <div class="accordion-item active">
+            <div class="accordion-header">
+                HÌNH ẢNH HOẠT ĐỘNG
+                <span class="icon">▼</span>
+            </div>
+            <div class="accordion-body">
+                <img src="1.jpg" alt="Trình bày tác phẩm Ẩm thực Tiệc Rồng Phụng" class="activity-img">
+                <p class="activity-caption">Trình bày tác phẩm Ẩm thực Tiệc Rồng Phụng</p>
+            </div>
         </div>
 
-        <div class="section-title">KINH NGHIỆM ĐIỀU HÀNH BẾP</div>
-        <div class="timeline-item">
-            <span class="date">2015 – HIỆN TẠI</span>
-            <h4>Bếp trưởng (Executive Chef)</h4>
-            <div class="company">Khách sạn Grand Sea Đà Nẵng</div>
-            <ul>
-                <li>Quản lý toàn bộ hoạt động vận hành nhà bếp, điều hành đội ngũ nhân sự.</li>
-                <li>Xây dựng thực đơn Buffet sáng, thực đơn A la carte và tiệc sự kiện.</li>
-                <li>Đảm bảo tiêu chuẩn Vệ sinh An toàn Thực phẩm và kiểm soát Food cost.</li>
-            </ul>
+        <!-- Mục 4 -->
+        <div class="accordion-item">
+            <div class="accordion-header">
+                KINH NGHIỆM GIẢNG DẠY & ĐÀO TẠO
+                <span class="icon">▼</span>
+            </div>
+            <div class="accordion-body">
+                <div class="timeline-item">
+                    <span class="date">2015 – HIỆN TẠI</span>
+                    <h4>Giảng viên Kỹ thuật Chế biến Món ăn</h4>
+                    <div class="company">Trường Đào Tạo Nghề Bếp NetSpace & Hướng Nghiệp Á Âu</div>
+                    <ul>
+                        <li>Trực tiếp giảng dạy kỹ thuật chế biến món ăn Á - Âu và quản lý bếp chuyên nghiệp.</li>
+                        <li>Đào tạo, hướng dẫn thực hành và định hướng nghề nghiệp cho hàng trăm học viên.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <span class="date">2015 – HIỆN TẠI</span>
+                    <h4>Chuyên gia Đào tạo Nghề Du lịch Bếp</h4>
+                    <div class="company">Các Tổ chức Phi Chính phủ (NGOs) tại Quảng Nam & Đà Nẵng</div>
+                    <ul>
+                        <li>Tập huấn, truyền nghề bếp du lịch cộng đồng và hỗ trợ sinh kế bền vững cho lao động địa phương.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="timeline-item">
-            <span class="date">2014 – 2015</span>
-            <h4>Bếp trưởng</h4>
-            <div class="company">Khách sạn Sea Phoenix Đà Nẵng</div>
-            <ul>
-                <li>Chịu trách nhiệm thiết lập quy trình vận hành bếp mới và lên thực đơn nhà hàng.</li>
-            </ul>
+
+        <!-- Mục 5 -->
+        <div class="accordion-item">
+            <div class="accordion-header">
+                KINH NGHIỆM ĐIỀU HÀNH BẾP
+                <span class="icon">▼</span>
+            </div>
+            <div class="accordion-body">
+                <div class="timeline-item">
+                    <span class="date">2015 – HIỆN TẠI</span>
+                    <h4>Bếp trưởng (Executive Chef)</h4>
+                    <div class="company">Khách sạn Grand Sea Đà Nẵng</div>
+                    <ul>
+                        <li>Quản lý toàn bộ hoạt động vận hành nhà bếp, điều hành đội ngũ nhân sự.</li>
+                        <li>Xây dựng thực đơn Buffet sáng, thực đơn A la carte và tiệc sự kiện.</li>
+                        <li>Đảm bảo tiêu chuẩn Vệ sinh An toàn Thực phẩm và kiểm soát Food cost.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <span class="date">2014 – 2015</span>
+                    <h4>Bếp trưởng</h4>
+                    <div class="company">Khách sạn Sea Phoenix Đà Nẵng</div>
+                    <ul>
+                        <li>Chịu trách nhiệm thiết lập quy trình vận hành bếp mới và lên thực đơn nhà hàng.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <span class="date">2007 – 2014</span>
+                    <h4>Bếp trưởng</h4>
+                    <div class="company">Khách sạn Vạn Lợi (Hội An)</div>
+                    <ul>
+                        <li>Điều hành bếp phục vụ khách du lịch quốc tế, tổ chức tiệc lớn và tiệc ngoài trời.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <span class="date">2002 – 2004</span>
+                    <h4>Bếp trưởng</h4>
+                    <div class="company">Đông An Beach Hotel (Hội An)</div>
+                </div>
+                <div class="timeline-item">
+                    <span class="date">2000 – 2002</span>
+                    <h4>Bếp phó (Sous Chef)</h4>
+                    <div class="company">Nhà hàng Brother Hội An (Công ty TM & DL Hoài Phố)</div>
+                </div>
+                <div class="timeline-item">
+                    <span class="date">1998 – 2000</span>
+                    <h4>Bếp trưởng</h4>
+                    <div class="company">Khách sạn Royal (17 Quang Trung, Đà Nẵng)</div>
+                </div>
+                <div class="timeline-item">
+                    <span class="date">1994 – 1998</span>
+                    <h4>Bếp phó - Chuyên món Ý</h4>
+                    <div class="company">Nhà hàng Ý (142 Võ Thị Sáu, Q.3, TP. Hồ Chí Minh)</div>
+                </div>
+                <div class="timeline-item">
+                    <span class="date">1988 – 1994</span>
+                    <h4>Nhân viên Bếp</h4>
+                    <div class="company">Khách sạn Modern (Công ty Dịch vụ Du lịch Đà Nẵng)</div>
+                </div>
+            </div>
         </div>
-        <div class="timeline-item">
-            <span class="date">2007 – 2014</span>
-            <h4>Bếp trưởng</h4>
-            <div class="company">Khách sạn Vạn Lợi (Hội An)</div>
-            <ul>
-                <li>Điều hành bếp phục vụ khách du lịch quốc tế, tổ chức tiệc lớn và tiệc ngoài trời.</li>
-            </ul>
-        </div>
-        <div class="timeline-item">
-            <span class="date">2002 – 2004</span>
-            <h4>Bếp trưởng</h4>
-            <div class="company">Đông An Beach Hotel (Hội An)</div>
-        </div>
-        <div class="timeline-item">
-            <span class="date">2000 – 2002</span>
-            <h4>Bếp phó (Sous Chef)</h4>
-            <div class="company">Nhà hàng Brother Hội An (Công ty TM & DL Hoài Phố)</div>
-        </div>
-        <div class="timeline-item">
-            <span class="date">1998 – 2000</span>
-            <h4>Bếp trưởng</h4>
-            <div class="company">Khách sạn Royal (17 Quang Trung, Đà Nẵng)</div>
-        </div>
-        <div class="timeline-item">
-            <span class="date">1994 – 1998</span>
-            <h4>Bếp phó - Chuyên món Ý</h4>
-            <div class="company">Nhà hàng Ý (142 Võ Thị Sáu, Q.3, TP. Hồ Chí Minh)</div>
-        </div>
-        <div class="timeline-item">
-            <span class="date">1988 – 1994</span>
-            <h4>Nhân viên Bếp</h4>
-            <div class="company">Khách sạn Modern (Công ty Dịch vụ Du lịch Đà Nẵng)</div>
-        </div>
+
     </div>
 </div>
+
+<script>
+    document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const item = header.parentElement;
+            item.classList.toggle('active');
+        });
+    });
+</script>
 
 </body>
 </html>
